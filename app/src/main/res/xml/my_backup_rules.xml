@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="sharedpref" path="com.yocto.wetodo_preferences.xml" />
+    <include domain="sharedpref" path="com.yocto.wetodo.rate.AppRater.xml" />
+    <include domain="sharedpref" path="com.yocto.wetodo.billing.Affiliater.xml" />
+    <include domain="sharedpref" path="com.yocto.wetodo.consent.Consenter.xml" />
+</full-backup-content>
