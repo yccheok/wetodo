@@ -14,6 +14,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
     private AppBarLayout appBarLayout;
@@ -25,18 +29,37 @@ public class MainActivity extends AppCompatActivity implements
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
+    private FragmentType fragmentType = FragmentType.Inbox;
+
+    private static final Map<FragmentType, Integer> menuIdLookupForTabNavigation;
+    static {
+        final Map<FragmentType, Integer> map = new EnumMap<>(FragmentType.class);
+
+        map.put(FragmentType.Inbox, R.id.nav_inbox);
+
+        menuIdLookupForTabNavigation = Collections.unmodifiableMap(map);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
+        initToolbar();
+
         this.content = findViewById(R.id.content);
         this.appBarLayout = findViewById(R.id.app_bar_layout);
-        this.toolbar = findViewById(R.id.toolbar);
 
-        setSupportActionBar(this.toolbar);
+        initDrawerLayoutAndActionBarDrawerToggle();
 
+        initNavigationView();
+
+        // Shadow is projected by TabLayout in NoteFragment.
+        setAppBarLayoutElevation(false);
+    }
+
+    private void initDrawerLayoutAndActionBarDrawerToggle() {
         this.drawerLayout = findViewById(R.id.drawer_layout);
         this.actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -45,21 +68,26 @@ public class MainActivity extends AppCompatActivity implements
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
         );
+
         this.drawerLayout.addDrawerListener(this.actionBarDrawerToggle);
         this.actionBarDrawerToggle.syncState();
+    }
 
-        initNavigationView();
+    private void initToolbar() {
+        this.toolbar = findViewById(R.id.toolbar);
 
-        // Shadow is projected by TabLayout in NoteFragment.
-        setAppBarLayoutElevation(false);
+        setSupportActionBar(this.toolbar);
     }
 
     private void initNavigationView() {
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Will not trigger onNavigationItemSelected.
-        navigationView.setCheckedItem(R.id.nav_inbox);
+        Integer menuId = menuIdLookupForTabNavigation.get(fragmentType);
+        if (menuId != null) {
+            navigationView.setCheckedItem(menuId);
+        }
     }
 
     private void setAppBarLayoutElevation(boolean on) {
