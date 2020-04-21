@@ -7,4 +7,6 @@
     <attr name="mainMenuIconSelector" format="reference" />
 
     <attr name="appBarLayoutTheme" format="reference" />
+
+    <attr name="addIcon" format="reference" />
 </resources>

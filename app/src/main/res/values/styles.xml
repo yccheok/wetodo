@@ -16,6 +16,8 @@
 
         <item name="mainMenuTextSelector">@null</item>
         <item name="mainMenuIconSelector">@null</item>
+
+        <item name="addIcon">@drawable/baseline_add_white_24</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
