@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorAccentLight">#ff0091ea</color>
+
+    <color name="blueTabColorLight">#ff5481e6</color>
+    <color name="greenTabColorLight">#ff7cb342</color>
+    <color name="redTabColorLight">#ffe53935</color>
+    <color name="orangeTabColorLight">#fffb8c00</color>
+    <color name="purpleTabColorLight">#ff913ccd</color>
+    <color name="yellowTabColorLight">#fffdd835</color>
+    <color name="cyanTabColorLight">#ff2ca8c2</color>
+    <color name="greyTabColorLight">#ff757575</color>
+
+    <color name="primaryTextColorLight">#de000000</color>
+    <color name="secondaryTextColorLight">#8a000000</color>
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorDark">#ff757575</color>
     <color tools:override="true" name="colorPrimaryDarkBlack">@android:color/black</color>
     <color tools:override="true" name="colorPrimaryBlack">#ff212121</color>
-    <color name="colorAccentLight">#ff0091ea</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorLight">#ff997950</color>
+    <color name="colorPrimaryLight">#ff51402C</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorPureWhite">#ffeeeeee</color>
+    <color name="colorPrimaryPureWhite">#ffffffff</color>
+    <color name="colorPrimaryDarkPureWhite">#ffffffff</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorPink">#fff8bbd0</color>
+    <color name="colorPrimaryPink">#fff48fb1</color>
+    <color name="colorPrimaryDarkPink">#ffbf5f82</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorPurple">#ffe1bee7</color>
+    <color name="colorPrimaryPurple">#ffce93d8</color>
+    <color name="colorPrimaryDarkPurple">#ff9c64a6</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorYellow">#fffff176</color>
+    <color name="colorPrimaryYellow">#fff9a825</color>
+    <color name="colorPrimaryDarkYellow">#ffc17900</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorRed">#ffef9a9a</color>
+    <color name="colorPrimaryRed">#ffd32f2f</color>
+    <color name="colorPrimaryDarkRed">#ff9a0007</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorBlue">#ff90caf9</color>
+    <color name="colorPrimaryBlue">#ff1976d2</color>
+    <color name="colorPrimaryDarkBlue">#ff004ba0</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="normalTabColorGreen">#ffa5d6a7</color>
+    <color name="colorPrimaryGreen">#ff2e7d32</color>
+    <color name="colorPrimaryDarkGreen">#ff005005</color>
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color name="colorPrimaryPureDark">#ff000000</color>
+    <!-- ####################################################################################### -->
 </resources>

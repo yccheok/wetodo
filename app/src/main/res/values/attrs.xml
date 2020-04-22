@@ -9,4 +9,15 @@
     <attr name="appBarLayoutTheme" format="reference" />
 
     <attr name="addIcon" format="reference" />
+
+    <attr name="blueTabColor" format="color" />
+    <attr name="greenTabColor" format="color" />
+    <attr name="redTabColor" format="color" />
+    <attr name="orangeTabColor" format="color" />
+    <attr name="purpleTabColor" format="color" />
+    <attr name="yellowTabColor" format="color" />
+    <attr name="cyanTabColor" format="color" />
+    <attr name="greyTabColor" format="color" />
+
+    <attr name="settingsTabIcon" format="reference" />
 </resources>

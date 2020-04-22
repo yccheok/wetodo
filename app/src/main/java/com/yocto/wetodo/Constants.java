@@ -1,8 +1,10 @@
 package com.yocto.wetodo;
 
-public class Constants {
+public final class Constants {
     private Constants() {
     }
 
-    public static final String PACKAGE_NAME = "com.yocto.wenote";
+    public static final String PACKAGE_NAME = "com.yocto.wetodo";
+
+    public static final Theme PREFERRED_THEME = Theme.Black;
 }

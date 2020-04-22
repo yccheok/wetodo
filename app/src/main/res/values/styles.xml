@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Theme.WeNote.Base.Black" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.WeTodo.Base.Black" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="themeName">Black</item>
 
         <item name="windowActionBar">false</item>
@@ -18,6 +18,17 @@
         <item name="mainMenuIconSelector">@null</item>
 
         <item name="addIcon">@drawable/baseline_add_white_24</item>
+
+        <item name="blueTabColor">@color/blueTabColorLight</item>
+        <item name="greenTabColor">@color/greenTabColorLight</item>
+        <item name="redTabColor">@color/redTabColorLight</item>
+        <item name="orangeTabColor">@color/orangeTabColorLight</item>
+        <item name="purpleTabColor">@color/purpleTabColorLight</item>
+        <item name="yellowTabColor">@color/yellowTabColorLight</item>
+        <item name="cyanTabColor">@color/cyanTabColorLight</item>
+        <item name="greyTabColor">@color/greyTabColorLight</item>
+
+        <item name="settingsTabIcon">@drawable/ic_settings_white_18dp</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
