@@ -11,9 +11,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.yocto.wetodo.project.ProjectFragment;
 
 import java.util.Collections;
 import java.util.EnumMap;
@@ -30,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
-    private FragmentType fragmentType = FragmentType.Inbox;
+    private FragmentType fragmentType = FragmentType.Project;
 
     private static final Map<FragmentType, Integer> menuIdLookupForTabNavigation;
     static {
         final Map<FragmentType, Integer> map = new EnumMap<>(FragmentType.class);
 
-        map.put(FragmentType.Inbox, R.id.nav_inbox);
+        map.put(FragmentType.Project, R.id.nav_poject);
 
         menuIdLookupForTabNavigation = Collections.unmodifiableMap(map);
     }
@@ -56,8 +59,20 @@ public class MainActivity extends AppCompatActivity implements
 
         initNavigationView();
 
-        // Shadow is projected by TabLayout in NoteFragment.
-        setAppBarLayoutElevation(false);
+        ensureCorrectContentFragmentIsCommitted();
+    }
+
+    private void ensureCorrectContentFragmentIsCommitted() {
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+
+        final Fragment fragment = fragmentManager.findFragmentById(R.id.content);
+
+        if (fragmentType == FragmentType.Project) {
+            if (!(fragment instanceof ProjectFragment)) {
+                ProjectFragment projectFragment = ProjectFragment.newInstance();
+                fragmentManager.beginTransaction().replace(R.id.content, projectFragment).commit();
+            }
+        }
     }
 
     private void initDrawerLayoutAndActionBarDrawerToggle() {

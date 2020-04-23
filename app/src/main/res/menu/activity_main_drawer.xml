@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single"
         android:id="@+id/top_group">
         <item
-            android:id="@+id/nav_inbox"
-            android:title="@string/nav_inbox" />
+            android:id="@+id/nav_poject"
+            android:title="@string/nav_project" />
     </group>
 
 </menu>
