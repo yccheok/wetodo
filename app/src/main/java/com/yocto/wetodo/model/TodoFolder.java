@@ -23,8 +23,8 @@ import java.util.List;
 
 import static com.yocto.wetodo.ui.Utils.isCustomColorIndex;
 
-@Entity(tableName = "project_info")
-public class ProjectInfo implements Parcelable {
+@Entity(tableName = "todo_folder")
+public class TodoFolder implements Parcelable {
     public static final String INBOX_UUID = "42a5ba96-4f3c-4162-9d48-bca95fdb5129";
     public static final String HOME_UUID = "e7d2b0b2-fe7e-45e7-b2be-1b7045e858b2";
     public static final String WORK_UUID = "c4b4e142-e988-4de2-8b36-9bdeb35fde4b";
@@ -67,7 +67,7 @@ public class ProjectInfo implements Parcelable {
     private long id;
 
     @ColumnInfo(name = "type")
-    @TypeConverters(ProjectInfoTypeConverter.class)
+    @TypeConverters(TodoFolderTypeConverter.class)
     private final Type type;
 
     @ColumnInfo(name = "name")
@@ -120,7 +120,7 @@ public class ProjectInfo implements Parcelable {
             R.attr.settingsTabIcon
     };
 
-    protected ProjectInfo(Parcel in) {
+    protected TodoFolder(Parcel in) {
         id = in.readLong();
         type = in.readParcelable(Type.class.getClassLoader());
         name = in.readString();
@@ -152,15 +152,15 @@ public class ProjectInfo implements Parcelable {
         return 0;
     }
 
-    public static final Creator<ProjectInfo> CREATOR = new Creator<ProjectInfo>() {
+    public static final Creator<TodoFolder> CREATOR = new Creator<TodoFolder>() {
         @Override
-        public ProjectInfo createFromParcel(Parcel in) {
-            return new ProjectInfo(in);
+        public TodoFolder createFromParcel(Parcel in) {
+            return new TodoFolder(in);
         }
 
         @Override
-        public ProjectInfo[] newArray(int size) {
-            return new ProjectInfo[size];
+        public TodoFolder[] newArray(int size) {
+            return new TodoFolder[size];
         }
     };
 
@@ -169,11 +169,11 @@ public class ProjectInfo implements Parcelable {
     }
 
     @Ignore
-    private ProjectInfo(Type type, String name, int colorIndex, int customColor, int iconIndex) {
+    private TodoFolder(Type type, String name, int colorIndex, int customColor, int iconIndex) {
         this(type, name, colorIndex, customColor, iconIndex, Utils.generateUUID());
     }
 
-    public ProjectInfo(Type type, String name, int colorIndex, int customColor, int iconIndex, String uuid) {
+    public TodoFolder(Type type, String name, int colorIndex, int customColor, int iconIndex, String uuid) {
         this.type = type;
         this.name = name;
         this.colorIndex = colorIndex;
@@ -183,8 +183,8 @@ public class ProjectInfo implements Parcelable {
     }
 
     // Don't forget to revise copyWithoutIdAndUuid function in com.yocto.wetodo.repository.Utils.
-    public ProjectInfo copy() {
-        ProjectInfo projectInfo = new ProjectInfo(this.type, this.name, this.colorIndex, this.customColor, this.iconIndex, this.uuid);
+    public TodoFolder copy() {
+        TodoFolder projectInfo = new TodoFolder(this.type, this.name, this.colorIndex, this.customColor, this.iconIndex, this.uuid);
         projectInfo.id = this.id;
         projectInfo.order = this.order;
         projectInfo.focused = this.focused;
@@ -192,20 +192,20 @@ public class ProjectInfo implements Parcelable {
         return projectInfo;
     }
 
-    public static List<ProjectInfo> copy(List<ProjectInfo> projectInfos) {
-        List<ProjectInfo> result = new ArrayList<>();
-        for (ProjectInfo tabInfo : projectInfos) {
+    public static List<TodoFolder> copy(List<TodoFolder> projectInfos) {
+        List<TodoFolder> result = new ArrayList<>();
+        for (TodoFolder tabInfo : projectInfos) {
             result.add(tabInfo.copy());
         }
         return result;
     }
 
-    public static ProjectInfo newInstance(Type type, String name, int colorIndex, int customColor, int iconIndex) {
-        return new ProjectInfo(type, name, colorIndex, customColor, iconIndex);
+    public static TodoFolder newInstance(Type type, String name, int colorIndex, int customColor, int iconIndex) {
+        return new TodoFolder(type, name, colorIndex, customColor, iconIndex);
     }
 
-    public static ProjectInfo newInstance(Type type, String name, int colorIndex, int customColor, int iconIndex, String uuid) {
-        return new ProjectInfo(type, name, colorIndex, customColor, iconIndex, uuid);
+    public static TodoFolder newInstance(Type type, String name, int colorIndex, int customColor, int iconIndex, String uuid) {
+        return new TodoFolder(type, name, colorIndex, customColor, iconIndex, uuid);
     }
 
     public static int[] getColorStringResourceIds() {
@@ -332,7 +332,7 @@ public class ProjectInfo implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProjectInfo projectInfo = (ProjectInfo) o;
+        TodoFolder projectInfo = (TodoFolder) o;
 
         if (id != projectInfo.id) return false;
         if (colorIndex != projectInfo.colorIndex) return false;

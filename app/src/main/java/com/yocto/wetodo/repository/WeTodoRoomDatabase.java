@@ -5,11 +5,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.yocto.wetodo.WeTodoApplication;
-import com.yocto.wetodo.model.ProjectInfo;
+import com.yocto.wetodo.model.TodoFolder;
 
 @Database(
         entities = {
-                ProjectInfo.class
+                TodoFolder.class
         },
         version = 1
 )
@@ -18,7 +18,7 @@ public abstract class WeTodoRoomDatabase extends RoomDatabase {
 
     private static final String NAME = "wetodo";
 
-    public abstract ProjectInfoDao projectInfoDao();
+    public abstract TodoFolderDao todoFolderDao();
 
     public static WeTodoRoomDatabase instance() {
         if (INSTANCE == null) {

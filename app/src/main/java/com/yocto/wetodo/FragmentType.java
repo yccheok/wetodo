@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public enum FragmentType implements Parcelable {
-    Project;
+    Todo;
 
     public static final Parcelable.Creator<FragmentType> CREATOR = new Parcelable.Creator<FragmentType>() {
         public FragmentType createFromParcel(Parcel in) {
