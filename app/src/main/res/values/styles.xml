@@ -1,4 +1,7 @@
 <resources>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
 
     <!-- Base application theme. -->
     <style name="Theme.WeTodo.Base.Black" parent="Theme.AppCompat.Light.DarkActionBar">

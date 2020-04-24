@@ -9,6 +9,9 @@ public class Utils {
     private Utils() {
     }
 
+    public static void trackEvent(String category, String action, String label) {
+    }
+
     public static int dpToPixel(float dp) {
         DisplayMetrics displayMetrics = WeTodoApplication.instance().getResources().getDisplayMetrics();
         return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics) + 0.5);

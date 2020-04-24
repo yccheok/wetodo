@@ -35,6 +35,7 @@ public enum WeTodoOptions {
             }
         } catch (Exception | AssertionError e) {
             Log.e(TAG, "", e);
+            Utils.trackEvent(TAG, "fatal", e.getMessage());
         }
     }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <com.google.android.material.tabs.TabLayout
+            app:tabMode="scrollable"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabTextAppearance="@style/TabTextAppearance"
+
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="36dp" />
+
+        <View
+            android:id="@+id/tab_layout_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.yocto.wenote.ui.FixedViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>
