@@ -16,6 +16,11 @@
         <item name="colorAccent">@color/colorAccentLight</item>
 
         <item name="appBarLayoutTheme">@style/AppTheme.AppBarOverlay</item>
+        <item name="noteToolbarForeground">@color/noteToolbarForegroundWhite</item>
+        <item name="toolbarForeground">@color/toolbarForegroundWhite</item>
+
+        <item name="trashToolbarColor">@color/trashToolbarColorLight</item>
+        <item name="trashStatusBarColor">@color/trashStatusBarColorLight</item>
 
         <item name="mainMenuTextSelector">@null</item>
         <item name="mainMenuIconSelector">@null</item>
@@ -32,6 +37,8 @@
         <item name="greyTabColor">@color/greyTabColorLight</item>
 
         <item name="settingsTabIcon">@drawable/ic_settings_white_18dp</item>
+
+        <item name="recyclerViewBackground">@color/recyclerViewBackgroundLight</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

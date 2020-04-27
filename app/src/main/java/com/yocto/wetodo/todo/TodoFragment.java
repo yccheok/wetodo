@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.yocto.wetodo.FragmentType;
+import com.yocto.wetodo.MainActivity;
 import com.yocto.wetodo.R;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoFolderViewModel;
@@ -53,7 +55,16 @@ public class TodoFragment extends Fragment {
                 TodoFragment.this::onChanged
         );
 
+        getMainActivity().refresh(
+                FragmentType.Todo,
+                null
+        );
+
         return view;
+    }
+
+    private MainActivity getMainActivity() {
+        return ((MainActivity)getActivity());
     }
 
     private void onChanged(List<TodoFolder> todoFolders) {
