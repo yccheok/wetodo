@@ -192,10 +192,10 @@ public class TodoFolder implements Parcelable {
         return projectInfo;
     }
 
-    public static List<TodoFolder> copy(List<TodoFolder> projectInfos) {
+    public static List<TodoFolder> copy(List<TodoFolder> todoFolders) {
         List<TodoFolder> result = new ArrayList<>();
-        for (TodoFolder tabInfo : projectInfos) {
-            result.add(tabInfo.copy());
+        for (TodoFolder todoFolder : todoFolders) {
+            result.add(todoFolder.copy());
         }
         return result;
     }
@@ -385,19 +385,19 @@ public class TodoFolder implements Parcelable {
         return WORK_UUID.equals(this.uuid);
     }
 
-    public boolean isOriginalInboxTabInfo() {
+    public boolean isOriginalInboxFolder() {
         return type == Type.Inbox && hasInboxUuid();
     }
 
-    public boolean isOriginalSettingsTabInfo() {
+    public boolean isOriginalSettingsFolder() {
         return type == Type.Settings && hasSettingsUuid();
     }
 
-    public boolean isOriginalHomeTabInfo() {
+    public boolean isOriginalHomeFolder() {
         return type == Type.Custom && hasHomeUuid();
     }
 
-    public boolean isOriginalWorkTabInfo() {
+    public boolean isOriginalWorkFolder() {
         return type == Type.Custom && hasWorkUuid();
     }
 
