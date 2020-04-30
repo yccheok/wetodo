@@ -15,6 +15,8 @@ public enum WeTodoOptions {
 
     private static final String TAG = "WeTodoOptions";
 
+    private static final String SYNC_REQUIRED = "SYNC_REQUIRED";
+
     public static final String THEME = "THEME";
 
     @NonNull
@@ -37,6 +39,10 @@ public enum WeTodoOptions {
             Log.e(TAG, "", e);
             Utils.trackEvent(TAG, "fatal", e.getMessage());
         }
+    }
+
+    public static void setSyncRequired(boolean syncRequired) {
+        WeTodoApplication.instance().getSharedPreferences().edit().putBoolean(SYNC_REQUIRED, syncRequired).apply();
     }
 
     public Theme getTheme() {
