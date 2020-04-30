@@ -16,6 +16,7 @@ public enum WeTodoOptions {
     private static final String TAG = "WeTodoOptions";
 
     private static final String SYNC_REQUIRED = "SYNC_REQUIRED";
+    private static final String SELECTED_TODO_FOLDER_INDEX = "SELECTED_TODO_FOLDER_INDEX";
 
     public static final String THEME = "THEME";
 
@@ -39,6 +40,14 @@ public enum WeTodoOptions {
             Log.e(TAG, "", e);
             Utils.trackEvent(TAG, "fatal", e.getMessage());
         }
+    }
+
+    public static int getSelectedTodoFolderIndex() {
+        return WeTodoApplication.instance().getSharedPreferences().getInt(SELECTED_TODO_FOLDER_INDEX, 0);
+    }
+
+    public static void setSelectedTodoFolderIndex(int selectedTodoFolderIndex) {
+        WeTodoApplication.instance().getSharedPreferences().edit().putInt(SELECTED_TODO_FOLDER_INDEX, selectedTodoFolderIndex).apply();
     }
 
     public static void setSyncRequired(boolean syncRequired) {

@@ -6,10 +6,12 @@ import androidx.room.RoomDatabase;
 
 import com.yocto.wetodo.WeTodoApplication;
 import com.yocto.wetodo.model.TodoFolder;
+import com.yocto.wetodo.model.TodoFolderTrash;
 
 @Database(
         entities = {
-                TodoFolder.class
+                TodoFolder.class,
+                TodoFolderTrash.class
         },
         version = 1
 )

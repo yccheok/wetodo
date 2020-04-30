@@ -105,7 +105,7 @@ public class Utils {
         });
     }
 
-    public static boolean ensureTodoFoldersIsValid(List<TodoFolder> todoFolders, boolean async) {
+    public static boolean ensureTodoFoldersAreValid(List<TodoFolder> todoFolders, boolean async) {
         final List<TodoFolder> mutableTodoFolders = new ArrayList<>(todoFolders);
 
         final List<TodoFolder> invalidTodoFolders = new ArrayList<>();

@@ -14,10 +14,15 @@ import com.google.android.material.tabs.TabLayout;
 import com.yocto.wetodo.FragmentType;
 import com.yocto.wetodo.MainActivity;
 import com.yocto.wetodo.R;
+import com.yocto.wetodo.WeTodoApplication;
+import com.yocto.wetodo.WeTodoOptions;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoFolderViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.yocto.wetodo.Utils.ensureTodoFoldersAreValid;
 
 public class TodoFragment extends Fragment {
 
@@ -26,6 +31,7 @@ public class TodoFragment extends Fragment {
     private View tabLayoutBottomView;
 
     private TodoFolderViewModel todoFolderViewModel;
+    private final List<TodoFolder> todoFolders = new ArrayList<>();
 
     public static TodoFragment newInstance() {
         TodoFragment projectFragment = new TodoFragment();
@@ -67,7 +73,31 @@ public class TodoFragment extends Fragment {
         return ((MainActivity)getActivity());
     }
 
-    private void onChanged(List<TodoFolder> todoFolders) {
+    private void ensureSelectedTodoFolderIndexIsValid() {
+        int selectedTodoFolderIndex = WeTodoOptions.getSelectedTodoFolderIndex();
+        if (selectedTodoFolderIndex < 0 || selectedTodoFolderIndex >= this.todoFolders.size()) {
+            selectedTodoFolderIndex = 0;
+            WeTodoOptions.setSelectedTodoFolderIndex(selectedTodoFolderIndex);
+        }
+    }
 
+    private void onChanged(List<TodoFolder> todoFolders) {
+        boolean valid = ensureTodoFoldersAreValid(todoFolders, true);
+
+        if (valid) {
+            this.todoFolders.clear();
+            this.todoFolders.addAll(todoFolders);
+
+            ensureSelectedTodoFolderIndexIsValid();
+/*
+            initTabs();
+
+            updateTabsIcon();
+            updateTabsColor();
+
+            Utils.onGlobalLayout(tabLayout, () -> {
+                updateLabelImageButtonVisibility();
+            });*/
+        }
     }
 }
