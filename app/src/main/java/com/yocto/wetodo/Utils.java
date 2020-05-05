@@ -24,6 +24,20 @@ public class Utils {
     public static void trackEvent(String category, String action, String label) {
     }
 
+    public static String getPageTitle(TodoFolder todoFolder) {
+        switch (todoFolder.getType()) {
+            case Inbox:
+                return WeTodoApplication.instance().getString(R.string.inbox);
+            case Custom:
+                return todoFolder.getName();
+            case Settings:
+                return null;
+            default:
+                Assert(false);
+                return null;
+        }
+    }
+
     public static float spToPixelInFloat(float sp) {
         DisplayMetrics displayMetrics = WeTodoApplication.instance().getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, displayMetrics);

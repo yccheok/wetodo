@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorAccentLight">#ff0091ea</color>
+    <color tools:override="true" name="ripple_material_light">#1f000000</color>
 
-    <color name="recyclerViewBackgroundLight">#fffafafa</color>
-    <color name="materialBackgroundLight">#fffafafa</color>
+    <!-- SHOP -->
+    <color tools:override="true" name="dim_foreground_material_light">#ff323232</color>
+
 
     <color name="noteToolbarForegroundWhite">#ffffffff</color>
     <color name="toolbarForegroundWhite">#ffffffff</color>
 
+    <color name="primaryTextColorLight">#de000000</color>
+    <color name="secondaryTextColorLight">#8a000000</color>
+
+    <!-- https://material.io/guidelines/style/color.html#color-themes -->
+
+    <color name="cardSelectedColorLight">#ffffe1b3</color>
+
+    <color name="colorPrimaryLight">#ff51402C</color>
+    <color name="colorAccentLight">#ff0091ea</color>
+
     <color name="trashToolbarColorLight">#ff757575</color>
     <color name="trashStatusBarColorLight">#ff424242</color>
+
+    <color name="noteLineColorLight">#1f000000</color>
 
     <color name="blueTabColorLight">#ff5481e6</color>
     <color name="greenTabColorLight">#ff7cb342</color>
@@ -19,25 +32,62 @@
     <color name="yellowTabColorLight">#fffdd835</color>
     <color name="cyanTabColorLight">#ff2ca8c2</color>
     <color name="greyTabColorLight">#ff757575</color>
-
-    <color name="primaryTextColorLight">#de000000</color>
-    <color name="secondaryTextColorLight">#8a000000</color>
-
-    <!-- ####################################################################################### -->
-    <color name="normalTabColorDark">#ff757575</color>
-    <color tools:override="true" name="colorPrimaryDarkBlack">@android:color/black</color>
-    <color tools:override="true" name="colorPrimaryBlack">#ff212121</color>
-    <!-- ####################################################################################### -->
-
-    <!-- ####################################################################################### -->
     <color name="normalTabColorLight">#ff997950</color>
-    <color name="colorPrimaryLight">#ff51402C</color>
+
+    <color name="tabTextColorLight">#b3ffffff</color>
+    <color name="tabIconColorLight">#b3ffffff</color>
+
+    <color name="whiteNoteColorLight">#ffffffff</color>
+    <color name="redNoteColorLight">#fffea3aa</color>
+    <color name="orangeNoteColorLight">#fff8b88b</color>
+    <color name="yellowNoteColorLight">#fffaf884</color>
+    <color name="darkBlueNoteColorLight">#ff82b1ff</color>
+    <color name="blueNoteColorLight">#ff80d8ff</color>
+    <color name="tealNoteColorLight">#ffa7ffeb</color>
+    <color name="greenNoteColorLight">#ffbaed91</color>
+    <color name="purpleNoteColorLight">#ffb388ff</color>
+    <color name="pinkNoteColorLight">#fff8bbd0</color>
+    <color name="brownNoteColorLight">#ffd7ccc8</color>
+    <color name="greyNoteColorLight">#ffcfd8dc</color>
+
+    <color name="whiteNoteSchemeColorLight">#ffe0e0e0</color>
+    <color name="redNoteSchemeColorLight">#ffe53935</color>
+    <color name="orangeNoteSchemeColorLight">#fffb8c00</color>
+    <color name="yellowNoteSchemeColorLight">#fffdd835</color>
+    <color name="darkBlueNoteSchemeColorLight">#ff5481e6</color>
+    <color name="blueNoteSchemeColorLight">#ff0288D1</color>
+    <color name="tealNoteSchemeColorLight">#ff00796B</color>
+    <color name="greenNoteSchemeColorLight">#ff7cb342</color>
+    <color name="purpleNoteSchemeColorLight">#ff913ccd</color>
+    <color name="pinkNoteSchemeColorLight">#ffC2185B</color>
+    <color name="brownNoteSchemeColorLight">#ffb49073</color>
+    <color name="greyNoteSchemeColorLight">#ff757575</color>
+
+    <color name="recyclerViewBackgroundLight">#fffafafa</color>
+    <color name="materialBackgroundLight">#fffafafa</color>
+
+    <!-- A700 light blue of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <!-- This blue is slightly lighter than actual blue in icon. The reason is that, we want to make it more visible in dark toolbar -->
+
+    <color name="primaryTextColorDark">#ffffffff</color>
+    <color name="secondaryTextColorDark">#b3ffffff</color>
+
+    <!-- 700 red of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <!-- 700 green of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+
+    <!-- https://stackoverflow.com/questions/27839216/android-material-design-divider-color -->
     <!-- ####################################################################################### -->
+
+
+
+    <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorPureWhite">#ffeeeeee</color>
     <color name="colorPrimaryPureWhite">#ffffffff</color>
-    <color name="colorPrimaryDarkPureWhite">#ffffffff</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
@@ -61,22 +111,51 @@
     <!-- ####################################################################################### -->
     <color name="normalTabColorRed">#ffef9a9a</color>
     <color name="colorPrimaryRed">#ffd32f2f</color>
-    <color name="colorPrimaryDarkRed">#ff9a0007</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorBlue">#ff90caf9</color>
     <color name="colorPrimaryBlue">#ff1976d2</color>
-    <color name="colorPrimaryDarkBlue">#ff004ba0</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorGreen">#ffa5d6a7</color>
     <color name="colorPrimaryGreen">#ff2e7d32</color>
-    <color name="colorPrimaryDarkGreen">#ff005005</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
     <color name="colorPrimaryPureDark">#ff000000</color>
     <!-- ####################################################################################### -->
+
+    <!-- ####################################################################################### -->
+    <color tools:override="true" name="ripple_material_dark">#33ffffff</color>
+
+    <color name="normalTabColorDark">#ff757575</color>
+    <color name="greyTabColorDark">#ff424242</color>
+
+    <color tools:override="true" name="colorPrimaryDarkBlack">@android:color/black</color>
+    <color tools:override="true" name="colorPrimaryBlack">#ff212121</color>
+
+    <!-- A700 amber of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+
+    <!-- https://stackoverflow.com/questions/36915508/what-are-the-material-design-dark-theme-colors -->
+
+    <color name="cardSelectedColorDark">#ff32809c</color>
+
+    <color name="whiteNoteColorDark">#ff424242</color>
+
+    <!-- Obtain from screen capture -->
+
+    <!-- https://stackoverflow.com/questions/30544657/material-design-icon-colors -->
+
+    <!-- https://stackoverflow.com/questions/27839216/android-material-design-divider-color -->
+    <color name="noteLineColorDark">#1fffffff</color>
+
+    <!-- 300 red of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <!-- 300 green of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+
+    <!-- ripple_material_dark -->
+
+    <!-- ripple_material_light -->
+
 </resources>

@@ -34,8 +34,12 @@
         <item name="purpleTabColor">@color/purpleTabColorLight</item>
         <item name="yellowTabColor">@color/yellowTabColorLight</item>
         <item name="cyanTabColor">@color/cyanTabColorLight</item>
-        <item name="greyTabColor">@color/greyTabColorLight</item>
+        <item name="greyTabColor">@color/greyTabColorDark</item>
+        
+        <item name="normalTabColor">@color/normalTabColorDark</item>
 
+        <item name="tabTextColor">@color/tabTextColorLight</item>
+        <item name="tabIconColor">@color/tabIconColorLight</item>
         <item name="settingsTabIcon">@drawable/ic_settings_white_18dp</item>
 
         <item name="recyclerViewBackground">@color/recyclerViewBackgroundLight</item>

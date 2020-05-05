@@ -24,6 +24,9 @@
     <attr name="cyanTabColor" format="color" />
     <attr name="greyTabColor" format="color" />
 
+    <attr name="normalTabColor" format="color" />
+    <attr name="tabTextColor" format="color" />
+    <attr name="tabIconColor" format="color" />
     <attr name="settingsTabIcon" format="reference" />
 
     <attr name="recyclerViewBackground" format="color" />
