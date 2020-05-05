@@ -8,10 +8,27 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.yocto.wetodo.R;
+import com.yocto.wetodo.model.TodoFolder;
 
 public class TodoDashboardFragment extends Fragment {
-    public static TodoDashboardFragment newInstance() {
-        return new TodoDashboardFragment();
+    private static final String INTENT_EXTRA_TODO_FOLDER = "INTENT_EXTRA_TODO_FOLDER";
+
+    private TodoFolder todoFolder;
+
+    public static TodoDashboardFragment newInstance(TodoFolder todoFolder) {
+        TodoDashboardFragment todoDashboardFragment = new TodoDashboardFragment();
+        Bundle arguments = new Bundle();
+        arguments.putParcelable(INTENT_EXTRA_TODO_FOLDER, todoFolder);
+        todoDashboardFragment.setArguments(arguments);
+        return todoDashboardFragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle arguments = getArguments();
+        this.todoFolder = arguments.getParcelable(INTENT_EXTRA_TODO_FOLDER);
     }
 
     @Override
