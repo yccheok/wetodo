@@ -29,7 +29,7 @@ public class TodoFragmentStateAdapter extends FragmentStateAdapter {
         final TodoFolder.Type type = todoFolder.getType();
 
         if (type == TodoFolder.Type.Inbox || type == Custom) {
-            return TodoDashboardFragment.newInstance();
+            return TodoDashboardFragment.newInstance(todoFolder);
         } else if (type == Settings) {
             return TodoFolderSettingsFragment.newInstance();
         } else {
@@ -41,5 +41,22 @@ public class TodoFragmentStateAdapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         return todoFoldersReference.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return todoFoldersReference.get(position).getId();
+    }
+
+    @Override
+    public boolean containsItem (long itemId) {
+        // TODO: Optimization required.
+        
+        for (TodoFolder todoFolder : todoFoldersReference) {
+            if (todoFolder.getId() == itemId) {
+                return true;
+            }
+        }
+        return false;
     }
 }
