@@ -34,6 +34,7 @@ import com.yocto.wetodo.model.TodoFolderViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.viewpager2.widget.ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT;
 import static com.yocto.wetodo.Utils.ensureTodoFoldersAreValid;
 import static com.yocto.wetodo.Utils.getPageTitle;
 import static com.yocto.wetodo.Utils.trackEvent;
@@ -290,7 +291,7 @@ public class TodoFragment extends Fragment {
         }
 
         // http://stackoverflow.com/questions/9857420/viewpager-fragments-getting-destroyed-over-time
-        viewPager2.setOffscreenPageLimit(1);
+        viewPager2.setOffscreenPageLimit(OFFSCREEN_PAGE_LIMIT_DEFAULT);
 
         int selectedTodoFolderIndex = WeTodoOptions.getSelectedTodoFolderIndex();
         setSelectedTodoFolder(selectedTodoFolderIndex);
