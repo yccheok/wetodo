@@ -39,6 +39,8 @@
         <item name="settingsTabIcon">@drawable/ic_settings_white_18dp</item>
 
         <item name="recyclerViewBackground">@color/recyclerViewBackgroundLight</item>
+
+        <item name="materialBackground">@color/materialBackgroundLight</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

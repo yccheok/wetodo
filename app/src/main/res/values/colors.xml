@@ -3,6 +3,7 @@
     <color name="colorAccentLight">#ff0091ea</color>
 
     <color name="recyclerViewBackgroundLight">#fffafafa</color>
+    <color name="materialBackgroundLight">#fffafafa</color>
 
     <color name="noteToolbarForegroundWhite">#ffffffff</color>
     <color name="toolbarForegroundWhite">#ffffffff</color>

@@ -5,16 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.yocto.wetodo.FragmentType;
 import com.yocto.wetodo.MainActivity;
 import com.yocto.wetodo.R;
-import com.yocto.wetodo.WeTodoApplication;
 import com.yocto.wetodo.WeTodoOptions;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoFolderViewModel;
@@ -26,12 +27,22 @@ import static com.yocto.wetodo.Utils.ensureTodoFoldersAreValid;
 
 public class TodoFragment extends Fragment {
 
-    private ViewPager viewPager;
+    private ViewPager2 viewPager2;
     private TabLayout tabLayout;
     private View tabLayoutBottomView;
+    private TodoFragmentStateAdapter todoFragmentStateAdapter;
 
     private TodoFolderViewModel todoFolderViewModel;
     private final List<TodoFolder> todoFolders = new ArrayList<>();
+    private final TabConfigurationStrategy tabConfigurationStrategy = new TabConfigurationStrategy();
+
+    private class TabConfigurationStrategy implements TabLayoutMediator.TabConfigurationStrategy {
+
+        @Override
+        public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+
+        }
+    }
 
     public static TodoFragment newInstance() {
         TodoFragment projectFragment = new TodoFragment();
@@ -50,7 +61,7 @@ public class TodoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.todo_fragment, container, false);
 
-        this.viewPager = view.findViewById(R.id.view_pager);
+        this.viewPager2 = view.findViewById(R.id.view_pager2);
         this.tabLayout = view.findViewById(R.id.tab_layout);
         this.tabLayoutBottomView = view.findViewById(R.id.tab_layout_bottom_view);
 
@@ -89,9 +100,9 @@ public class TodoFragment extends Fragment {
             this.todoFolders.addAll(todoFolders);
 
             ensureSelectedTodoFolderIndexIsValid();
-/*
-            initTabs();
 
+            initTabs();
+/*
             updateTabsIcon();
             updateTabsColor();
 
@@ -99,5 +110,26 @@ public class TodoFragment extends Fragment {
                 updateLabelImageButtonVisibility();
             });*/
         }
+    }
+
+    private void initTabs() {
+        if (todoFragmentStateAdapter == null) {
+            todoFragmentStateAdapter = new TodoFragmentStateAdapter(
+                    this,
+                    todoFolders
+            );
+            viewPager2.setAdapter(todoFragmentStateAdapter);
+
+            final TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2, tabConfigurationStrategy);
+            tabLayoutMediator.attach();
+        } else {
+            todoFragmentStateAdapter.notifyDataSetChanged();
+        }
+
+        // http://stackoverflow.com/questions/9857420/viewpager-fragments-getting-destroyed-over-time
+        viewPager2.setOffscreenPageLimit(1);
+
+        //int selectedNoteTabIndex = WeNoteOptions.getSelectedNoteTabIndex();
+        //setSelectedNoteTab(selectedNoteTabIndex);
     }
 }

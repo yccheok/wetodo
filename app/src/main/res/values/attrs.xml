@@ -27,4 +27,6 @@
     <attr name="settingsTabIcon" format="reference" />
 
     <attr name="recyclerViewBackground" format="color" />
+
+    <attr name="materialBackground" format="color" />
 </resources>
