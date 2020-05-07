@@ -26,6 +26,9 @@
         <item name="mainMenuIconSelector">@null</item>
 
         <item name="addIcon">@drawable/baseline_add_white_24</item>
+        <item name="deleteIcon">@drawable/ic_close_black_24dp</item>
+        <item name="confirmSettingsIcon">@drawable/baseline_done_black_24</item>
+        <item name="dragIcon">@drawable/baseline_drag_handle_black_24</item>
 
         <item name="blueTabColor">@color/blueTabColorLight</item>
         <item name="greenTabColor">@color/greenTabColorLight</item>
@@ -45,6 +48,11 @@
         <item name="recyclerViewBackground">@color/recyclerViewBackgroundLight</item>
 
         <item name="materialBackground">@color/materialBackgroundLight</item>
+
+        <item name="colorPickerBorderColor">@color/colorPickerBorderColorLight</item>
+
+        <item name="primaryTextColor">@color/primaryTextColorLight</item>
+        <item name="secondaryTextColor">@color/secondaryTextColorLight</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

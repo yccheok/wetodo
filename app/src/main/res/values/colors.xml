@@ -63,6 +63,8 @@
     <color name="brownNoteSchemeColorLight">#ffb49073</color>
     <color name="greyNoteSchemeColorLight">#ff757575</color>
 
+    <color name="colorPickerBorderColorLight">#1f000000</color>
+
     <color name="recyclerViewBackgroundLight">#fffafafa</color>
     <color name="materialBackgroundLight">#fffafafa</color>
 
