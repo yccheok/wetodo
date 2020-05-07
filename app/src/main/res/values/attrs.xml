@@ -27,9 +27,18 @@
     <attr name="normalTabColor" format="color" />
     <attr name="tabTextColor" format="color" />
     <attr name="tabIconColor" format="color" />
+
+    <attr name="deleteIcon" format="reference" />
+    <attr name="dragIcon" format="reference" />
+    <attr name="confirmSettingsIcon" format="reference" />
     <attr name="settingsTabIcon" format="reference" />
 
     <attr name="recyclerViewBackground" format="color" />
 
     <attr name="materialBackground" format="color" />
+
+    <attr name="colorPickerBorderColor" format="color" />
+
+    <attr name="primaryTextColor" format="color" />
+    <attr name="secondaryTextColor" format="color" />
 </resources>
