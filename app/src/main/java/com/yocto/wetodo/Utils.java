@@ -6,6 +6,11 @@ import android.util.TypedValue;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.repository.TodoFolderRepository;
 import com.yocto.wetodo.repository.UpdateOrder;
@@ -18,6 +23,10 @@ import java.util.UUID;
 import static com.yocto.wetodo.repository.Utils.getExecutorForRepository;
 
 public class Utils {
+    public interface Callable<T> {
+        void call(T t);
+    }
+
     private Utils() {
     }
 
@@ -296,5 +305,34 @@ public class Utils {
         }
 
         TodoFolderRepository.INSTANCE.insert(mutableTodoFolders);
+    }
+
+    public static float dpToPixelInFloat(float dp) {
+        DisplayMetrics displayMetrics = WeTodoApplication.instance().getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
+    }
+
+    public static <T> void ready(LiveData<T> liveData, LifecycleOwner lifecycleOwner, Callable<T> callable) {
+        T t = liveData.getValue();
+        if (t != null) {
+            callable.call(t);
+            return;
+        }
+
+        liveData.observe(lifecycleOwner, new Observer<T>() {
+            @Override
+            public void onChanged(@Nullable T t) {
+                liveData.removeObserver(this);
+                callable.call(t);
+            }
+        });
+    }
+
+    public static boolean equals(String a, String b) {
+        return (a == b) || (a != null && a.equals(b));
+    }
+
+    public static boolean equals(Object a, Object b) {
+        return (a == b) || (a != null && a.equals(b));
     }
 }
