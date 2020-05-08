@@ -9,6 +9,9 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.yocto.wetodo.R;
 import com.yocto.wetodo.Theme;
@@ -238,5 +241,29 @@ public class Utils {
                 ColorLazyHolder.primaryTextColorDark,
                 backgroundColor
         );
+    }
+
+    public static void scroll(RecyclerView recyclerView, int row) {
+        // If the row is not visible, scroll to that row.
+        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+
+        if (layoutManager instanceof LinearLayoutManager) {
+            LinearLayoutManager linearLayoutManager = ((LinearLayoutManager)layoutManager);
+            final int firstCompletelyVisibleItemPosition = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+            final int lastCompletelyVisibleItemPosition = linearLayoutManager.findLastCompletelyVisibleItemPosition();
+
+            if (row < firstCompletelyVisibleItemPosition || row > lastCompletelyVisibleItemPosition) {
+                ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(row, 0);
+            }
+        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+            // I would like to have similar scrolling logic as LinearLayoutManager, by using
+            // findFirstCompletelyVisibleItemPosition and findLastCompletelyVisibleItemPosition.
+            // However, I'm not exactly sure how to do that for StaggeredGridLayoutManager. Since,
+            // not much users are using StaggeredGridLayoutManager right now, we can omit it at
+            // this moment.
+            ((StaggeredGridLayoutManager)layoutManager).scrollToPositionWithOffset(row, 0);
+        } else {
+            Assert(false);
+        }
     }
 }
