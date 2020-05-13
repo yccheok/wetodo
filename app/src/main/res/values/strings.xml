@@ -36,4 +36,17 @@
     <string name="avocado">Avocado</string>
     <string name="pure_dark">Pure dark</string>
 
+    <string name="remove_tag_template">Remove \"%1$s\" label from all notes?</string>
+    <string name="remove">Remove</string>
+
+    <string name="dismiss">Dismiss</string>
+
+    <string name="input_a_color">Input a color</string>
+    <string name="select_a_color">Select a color</string>
+    <string name="presets_color">Presets</string>
+    <string name="custom_color">Custom</string>
+    <string name="select_color">Select</string>
+    <string name="sample_text_color">Sample text</string>
+
+    <string name="another_tab_with_same_name_template">There\'s already another label with name \"%1$s\".</string>
 </resources>

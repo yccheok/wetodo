@@ -26,27 +26,23 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.yocto.wenote.R;
-import com.yocto.wenote.Utils;
-import com.yocto.wenote.WeNoteOptions;
-import com.yocto.wenote.billing.Feature;
-import com.yocto.wenote.billing.Shop;
+import com.yocto.wetodo.R;
+import com.yocto.wetodo.Utils;
 import com.yocto.wetodo.WeTodoOptions;
+import com.yocto.wetodo.billing.Feature;
+import com.yocto.wetodo.billing.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static com.yocto.wenote.Constants.MOST_RECENT_COLOR_LIST_SIZE;
-import static com.yocto.wenote.Utils.Assert;
-import static com.yocto.wenote.Utils.TypefaceLazyHolder.ROBOTO_MONO_REGULAR_TYPE_FACE;
-import static com.yocto.wenote.Utils.toArray;
-import static com.yocto.wenote.Utils.toSet;
-import static com.yocto.wenote.billing.Utils.isAllow;
-import static com.yocto.wenote.billing.Utils.shop;
-import static com.yocto.wenote.color.Utils.colorToV;
-import static com.yocto.wenote.color.Utils.toHexColorString;
-import static com.yocto.wenote.ui.Utils.getOptimizedPrimaryTextColor;
+import static com.yocto.wetodo.Constants.MOST_RECENT_COLOR_LIST_SIZE;
+import static com.yocto.wetodo.Utils.Assert;
+import static com.yocto.wetodo.Utils.TypefaceLazyHolder.ROBOTO_MONO_REGULAR_TYPE_FACE;
+import static com.yocto.wetodo.Utils.toArray;
+import static com.yocto.wetodo.Utils.toSet;
+import static com.yocto.wetodo.billing.Utils.isAllow;
+import static com.yocto.wetodo.billing.Utils.shop;
 import static com.yocto.wetodo.color.Utils.colorToV;
 import static com.yocto.wetodo.color.Utils.toHexColorString;
 import static com.yocto.wetodo.ui.Utils.getOptimizedPrimaryTextColor;
@@ -243,7 +239,7 @@ public class ColorPickerDialogFragment extends DialogFragment implements HexColo
             } else {
                 this.selectedV = 1.0f;
             }
-            this.selectedPageIndex = WeNoteOptions.INSTANCE.getSelectedColorPickerDialogPageIndex(this.type);
+            this.selectedPageIndex = WeTodoOptions.INSTANCE.getSelectedColorPickerDialogPageIndex(this.type);
         } else {
             this.selectedColorIsValid = savedInstanceState.getBoolean(SELECTED_COLOR_IS_VALID_KEY);
             this.selectedColor = savedInstanceState.getInt(SELECTED_COLOR_KEY);
@@ -306,8 +302,8 @@ public class ColorPickerDialogFragment extends DialogFragment implements HexColo
     private void onCustomColorSelectedThenDismiss() {
         if (this.selectedCustomColor != null) {
             if (isAllow(Feature.Color)) {
-                WeNoteOptions.INSTANCE.setSelectedColorPickerDialogPageIndex(type, selectedPageIndex);
-                WeNoteOptions.INSTANCE.setAndClearMostRecentSelectedColorList(type, selectedCustomColor);
+                WeTodoOptions.INSTANCE.setSelectedColorPickerDialogPageIndex(type, selectedPageIndex);
+                WeTodoOptions.INSTANCE.setAndClearMostRecentSelectedColorList(type, selectedCustomColor);
 
                 Fragment fragment = getTargetFragment();
                 if (fragment instanceof ColorPickerDialogListener) {
@@ -378,7 +374,7 @@ public class ColorPickerDialogFragment extends DialogFragment implements HexColo
     }
 
     private void initShades() {
-        List<Integer> mostRecentSelectedColors = new ArrayList<>(WeNoteOptions.INSTANCE.getMostRecentSelectedColorLists(this.type));
+        List<Integer> mostRecentSelectedColors = new ArrayList<>(WeTodoOptions.INSTANCE.getMostRecentSelectedColorLists(this.type));
 
         if (extraColor != null) {
             mostRecentSelectedColors.add(0, extraColor);

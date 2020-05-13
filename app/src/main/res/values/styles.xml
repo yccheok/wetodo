@@ -29,6 +29,9 @@
         <item name="deleteIcon">@drawable/ic_close_black_24dp</item>
         <item name="confirmSettingsIcon">@drawable/baseline_done_black_24</item>
         <item name="dragIcon">@drawable/baseline_drag_handle_black_24</item>
+        <item name="smallLockedIcon">@drawable/baseline_lock_black_18</item>
+        <item name="backspaceIcon">@drawable/baseline_backspace_black_24</item>
+        <item name="confirmInputIcon">@drawable/done_selector_light</item>
 
         <item name="blueTabColor">@color/blueTabColorLight</item>
         <item name="greenTabColor">@color/greenTabColorLight</item>
@@ -38,12 +41,14 @@
         <item name="yellowTabColor">@color/yellowTabColorLight</item>
         <item name="cyanTabColor">@color/cyanTabColorLight</item>
         <item name="greyTabColor">@color/greyTabColorDark</item>
-        
+
         <item name="normalTabColor">@color/normalTabColorDark</item>
 
         <item name="tabTextColor">@color/tabTextColorLight</item>
         <item name="tabIconColor">@color/tabIconColorLight</item>
         <item name="settingsTabIcon">@drawable/ic_settings_white_18dp</item>
+
+        <item name="snackbarActionTextColor">@color/snackbarActionTextColorLight</item>
 
         <item name="recyclerViewBackground">@color/recyclerViewBackgroundLight</item>
 
@@ -53,6 +58,12 @@
 
         <item name="primaryTextColor">@color/primaryTextColorLight</item>
         <item name="secondaryTextColor">@color/secondaryTextColorLight</item>
+
+        <item name="dialogPositiveButtonTextColor">@color/dialog_positive_button_text_color_material_light</item>
+        <item name="dialogPositiveButtonSelector">@drawable/dialog_positive_button_selector_material_light</item>
+
+        <item name="rectangleWithBorder">@drawable/rectangle_with_border_light</item>
+        <item name="rectangleWithBorderForColorPicker">@drawable/rectangle_with_border_for_color_picker_light</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

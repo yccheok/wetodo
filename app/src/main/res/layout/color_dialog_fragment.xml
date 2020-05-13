@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/abc_dialog_padding_material"
+    android:paddingRight="@dimen/abc_dialog_padding_material"
+    android:paddingTop="@dimen/abc_dialog_padding_top_material"
+    android:paddingBottom="@dimen/abc_dialog_padding_top_material"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ViewAnimator
+        android:measureAllChildren="false"
+
+        android:id="@+id/view_animator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateFirstView="true">
+
+        <include
+            android:id="@+id/cpv_dialog_presets"
+            layout="@layout/cpv_dialog_presets" />
+
+        <include
+            android:id="@+id/custom_color_fragment"
+            layout="@layout/custom_color_fragment" />
+    </ViewAnimator>
+</LinearLayout>

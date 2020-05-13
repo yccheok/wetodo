@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/custom_selected_color_linear_layout"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:foreground="?attr/rectangleWithBorderForColorPicker">
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="8dp"
+
+                    android:id="@+id/custom_text_view"
+
+                    android:text="@string/sample_text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/custom_divider"
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:background="?android:attr/dividerVertical"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- 152 = 168 - SELECTOR_RADIUS_DP - SELECTOR_RADIUS_DP -->
+            <com.yocto.wetodo.color.BrightnessPickerView
+
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:id="@+id/custom_brightness_picker_view"
+
+                android:layout_width="48dp"
+                android:layout_height="152dp" />
+
+            <com.yocto.wetodo.color.ColorWheelView
+                android:id="@+id/custom_color_wheel_view"
+
+                android:layout_width="168dp"
+                android:layout_height="168dp"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

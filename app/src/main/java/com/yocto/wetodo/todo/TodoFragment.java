@@ -121,8 +121,8 @@ public class TodoFragment extends Fragment {
         this.tabLayoutBottomView = view.findViewById(R.id.tab_layout_bottom_view);
 
         final LifecycleOwner viewLifecycleOwner = getViewLifecycleOwner();
-        todoFolderViewModel.getTabInfosLiveData().removeObservers(viewLifecycleOwner);
-        todoFolderViewModel.getTabInfosLiveData().observe(
+        todoFolderViewModel.getTodoFoldersLiveData().removeObservers(viewLifecycleOwner);
+        todoFolderViewModel.getTodoFoldersLiveData().observe(
                 viewLifecycleOwner,
                 TodoFragment.this::onChanged
         );

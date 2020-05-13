@@ -25,6 +25,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.yocto.wetodo.todo.TodoFragment;
 import com.yocto.wetodo.trash.TrashFragment;
 
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements
     private int trashToolbarColor;
     private int trashStatusBarColor;
     private boolean windowLightStatusBar = false;
+
+    private int snackbarActionTextColor;
+    private Snackbar snackbar;
 
     private CoordinatorLayout content;
     private NavigationView navigationView;
@@ -103,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements
         trashToolbarColor = typedValue.data;
         theme.resolveAttribute(R.attr.trashStatusBarColor, typedValue, true);
         trashStatusBarColor = typedValue.data;
+        theme.resolveAttribute(R.attr.snackbarActionTextColor, typedValue, true);
+        snackbarActionTextColor = typedValue.data;
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             int [] attrs = new int[]{android.R.attr.windowLightStatusBar};
@@ -319,5 +325,26 @@ public class MainActivity extends AppCompatActivity implements
         getMenuInflater().inflate(R.menu.main, menu);
 
         return true;
+    }
+
+    public void showSnackbar(String message, int actionStringResourceId, View.OnClickListener onClickListener) {
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.content), message, Snackbar.LENGTH_LONG);
+
+        if (actionStringResourceId != 0 && onClickListener != null) {
+            snackbar.setActionTextColor(snackbarActionTextColor);
+            snackbar.setAction(actionStringResourceId, onClickListener);
+        }
+
+        snackbar.show();
+
+        this.snackbar = snackbar;
+    }
+
+    public void hideSnackbar() {
+        Snackbar snackbar = this.snackbar;
+        if (snackbar != null) {
+            snackbar.dismiss();
+            this.snackbar = null;
+        }
     }
 }

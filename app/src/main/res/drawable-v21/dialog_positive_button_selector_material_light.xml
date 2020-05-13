@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://stackoverflow.com/questions/28484369/what-should-be-the-color-of-the-ripple-colorprimary-or-coloraccent-material-d -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/ripple_material_dark">
+    <!-- @color/ripple_material_light -->
+    <!-- @color/ripple_material_dark -->
+    <item android:drawable="@drawable/dialog_positive_button_selector_for_ripple_material_light" />
+</ripple>

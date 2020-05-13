@@ -1,5 +1,6 @@
 package com.yocto.wetodo.ui;
 
+import android.graphics.Color;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.yocto.wetodo.WeTodoOptions;
 import static com.yocto.wetodo.Utils.Assert;
 
 public class Utils {
+    public static final int NIL_CUSTOM_COLOR = 0;
     public static final int CUSTOM_COLOR_INDEX = -1;
 
     private static final class ColorLazyHolder {
@@ -265,5 +267,25 @@ public class Utils {
         } else {
             Assert(false);
         }
+    }
+
+    public static boolean isPureDarkTheme() {
+        return Theme.PureDark == WeTodoOptions.INSTANCE.getTheme();
+    }
+
+    public static boolean isDarkTheme() {
+        return Theme.Dark == WeTodoOptions.INSTANCE.getTheme();
+    }
+
+    public static boolean isLightBackgroundColor(int backgroundColor) {
+        if (ColorLazyHolder.IS_LIGHT_COLOR.indexOfKey(backgroundColor) >= 0) {
+            return ColorLazyHolder.IS_LIGHT_COLOR.get(backgroundColor, true);
+        }
+
+        if (Color.BLACK == getContrastForegroundColor(Color.BLACK, Color.WHITE, backgroundColor)) {
+            return true;
+        }
+
+        return false;
     }
 }

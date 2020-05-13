@@ -4,23 +4,60 @@
 
     <!-- SHOP -->
     <color tools:override="true" name="dim_foreground_material_light">#ff323232</color>
+    <color name="shop_best_deal_button_text_view_color_material_light">#ffffffff</color>
+    <color name="shop_linear_layout_background_material_light">#ffffffff</color>
+    <color name="shop_title_text_view_color_material_light">#fff76d3c</color>
+    <color name="shop_top_divider_color_material_light">#fff76d3c</color>
+    <color name="shop_or_text_view_color_material_light">#fff76d3c</color>
+    <color name="shop_bottom_divider_color_material_light">#ffc8c8c8</color>
+    <color name="promo_shop_button_background_color_material_light">#ff689f38</color>
+    <color name="demo_button_background_color_material_light">#ff5481e6</color>
+    <color name="shop_button_background_color_material_light">#fff76d3c</color>
+    <color name="demo_button_text_color_material_light">#ffffffff</color>
+    <color name="shop_button_text_color_material_light">#ffffffff</color>
+    <color name="shop_row_linear_layout_pressed_background_material_light">#ffd5d5d5</color>
+    <color name="shop_row_description_text_view_color_material_light">#ff626262</color>
+    <color name="shop_row_item_text_view_selected_color_material_light">#ff000000</color>
+    <color name="shop_row_price_text_view_selected_color_material_light">#fff76d3c</color>
+    <color name="shop_row_price_text_view_color_material_light">#ffabacae</color>
+    <drawable name="shop_row_linear_layout_normal_background_material_light">#ffececec</drawable>
+    <drawable name="shop_row_linear_layout_pressed_background_material_light">#ffd5d5d5</drawable>
 
 
     <color name="noteToolbarForegroundWhite">#ffffffff</color>
     <color name="toolbarForegroundWhite">#ffffffff</color>
 
+    <color name="primaryIconTintColorLight">#de000000</color>
+
     <color name="primaryTextColorLight">#de000000</color>
     <color name="secondaryTextColorLight">#8a000000</color>
 
-    <!-- https://material.io/guidelines/style/color.html#color-themes -->
+    <color name="circleCalendarWidgetTextColorLight">#ffffffff</color>
 
+    <color name="primaryTextColorDisableLight">#61000000</color>
+
+    <!-- https://material.io/guidelines/style/color.html#color-themes -->
+    <color name="theActionModeBackgroundLight">#ff212121</color>
+    <color name="actionModeStatusBarColorLight">#ff000000</color>
+
+    <color name="cardColorLight">#ffffffff</color>
     <color name="cardSelectedColorLight">#ffffe1b3</color>
+    <color name="cardSelectedBorderColorLight">#fff76d3c</color>
 
     <color name="colorPrimaryLight">#ff51402C</color>
+    <color name="colorPrimaryDarkLight">#ff30261A</color>
     <color name="colorAccentLight">#ff0091ea</color>
+    <color name="colorAccentDisableLight">#610091ea</color>
+
+    <color name="shadowViewBaseColorLight">#44000000</color>
+
+    <color name="archiveToolbarColorLight">#ff546e7a</color>
+    <color name="archiveStatusBarColorLight">#ff37474f</color>
 
     <color name="trashToolbarColorLight">#ff757575</color>
     <color name="trashStatusBarColorLight">#ff424242</color>
+
+    <color name="greyIconColorLight">#ff757575</color>
 
     <color name="noteLineColorLight">#1f000000</color>
 
@@ -63,33 +100,109 @@
     <color name="brownNoteSchemeColorLight">#ffb49073</color>
     <color name="greyNoteSchemeColorLight">#ff757575</color>
 
+    <color name="editTextHighlightColorLight">#ff97d1f5</color>
+    <color name="titleHighlightColorLight">#ff264F78</color>
+
+    <color name="noteHighlightColorLight">#fffdd835</color>
+    <color name="whiteNoteHighlightColorLight">#fffdd835</color>
+    <color name="redNoteHighlightColorLight">#fffdd835</color>
+    <color name="orangeNoteHighlightColorLight">#fffdd835</color>
+    <color name="yellowNoteHighlightColorLight">#fffdd835</color>
+    <color name="darkBlueNoteHighlightColorLight">#fffdd835</color>
+    <color name="blueNoteHighlightColorLight">#fffdd835</color>
+    <color name="tealNoteHighlightColorLight">#fffdd835</color>
+    <color name="greenNoteHighlightColorLight">#fffdd835</color>
+    <color name="purpleNoteHighlightColorLight">#fffdd835</color>
+    <color name="pinkNoteHighlightColorLight">#fffdd835</color>
+    <color name="brownNoteHighlightColorLight">#fffdd835</color>
+    <color name="greyNoteHighlightColorLight">#fffdd835</color>
+
+    <color name="indicatorBorderColorLight">#1f000000</color>
+    <color name="calendarRectBorderColorLight">#1f000000</color>
     <color name="colorPickerBorderColorLight">#1f000000</color>
+    <color name="circleBorderColorLight">#de000000</color>
 
     <color name="recyclerViewBackgroundLight">#fffafafa</color>
     <color name="materialBackgroundLight">#fffafafa</color>
 
     <!-- A700 light blue of https://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- This blue is slightly lighter than actual blue in icon. The reason is that, we want to make it more visible in dark toolbar -->
+    <color name="pinColorLight">#ff0091ea</color>
+
+    <color name="selectedItemBackgroundColorLight">#ffe0e0e0</color>
+
+    <color name="progressBarColorWhite">#ffffffff</color>
+    <color name="progressBarColorBlack">#ff000000</color>
+
+    <color name="snackbarActionTextColorLight">#ffffab00</color>
+
+    <color name="noteToolbarForegroundBlack">#ff000000</color>
+
+    <color name="primaryIconTintColorDark">#ffffffff</color>
 
     <color name="primaryTextColorDark">#ffffffff</color>
     <color name="secondaryTextColorDark">#b3ffffff</color>
 
+    <color name="circleCalendarWidgetTextColorDark">#de000000</color>
+
+    <color name="primaryTextColorDisableDark">#4dffffff</color>
+
+    <drawable name="dummy">#ffff0000</drawable>
+
+    <color name="calendarHolidayLunarTextColorLight">#ff0091ea</color>
+    <color name="calendarBackgroundColorLight">#ffffffff</color>
+
+    <color name="calendarCurrentMonthTextColorLight">#de000000</color>
+    <color name="calendarOtherMonthTextColorLight">#ffe0e0e0</color>
+    <color name="calendarCurrentMonthLunarTextColorLight">#8a000000</color>
+    <color name="calendarOtherMonthLunarTextColorLight">#ffe0e0e0</color>
+    <color name="calendarCurrentDayTextColorLight">#ff00796B</color>
+    <color name="calendarCurrentDayLunarTextColorLight">#ff00796B</color>
+    <color name="calendarSundayTextColorLight">#ffe53935</color>
+    <color name="calendarSundayLunarTextColorLight">#ffe53935</color>
+    <color name="calendarSelectedTextColorLight">#de000000</color>
+    <color name="calendarSelectedLunarTextColorLight">#de000000</color>
+    <color name="calendarSelectedThemeColorLight">#ffe0e0e0</color>
+
+    <color name="calendarWeekLineBackgroundColorLight">#00000000</color>
+    <color name="calendarWeekSelectedTextColorLight">#ff00796B</color>
+    <color name="calendarWeekTextColorLight">#8a000000</color>
+    <color name="calendarWeekSundayTextColorLight">#ffe53935</color>
+
+    <color name="calendarYearBackgroundColorLight">#ffffffff</color>
+    <color name="calendarYearMonthTextColorLight">#ffe53935</color>
+    <color name="calendarYearSchemeColorLight">#fffb8c00</color>
+
     <!-- 700 red of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="alertTextViewColorLight">#ffd32f2f</color>
     <!-- 700 green of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="successTextViewColorLight">#ff388e3c</color>
+
+    <color name="dashboardDialogFragmentBottomLinearLayoutBackgoundColorLight">#ffe0e0e0</color>
+
+    <color name="dialog_positive_button_text_color_material_light">#ffffffff</color>
+    <color name="dialog_positive_button_background_color_material_light">#ff0091ea</color>
+    <color name="dialog_positive_button_pressed_background_color_material_light">#7f0091ea</color>
 
     <!-- https://stackoverflow.com/questions/27839216/android-material-design-divider-color -->
+    <color name="dividerColorLight">#1f000000</color>
     <!-- ####################################################################################### -->
 
 
 
     <!-- ####################################################################################### -->
+    <color name="colorPrimaryDarkWhite">#ffc7c7c7</color>
+    <color name="colorPrimaryWhite">#fffafafa</color>
 
+    <color name="searchToolbarBackgroundColorLight">#ffffffff</color>
+    <color name="textColorHintLight">#61000000</color>
     <!-- ####################################################################################### -->
 
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorPureWhite">#ffeeeeee</color>
     <color name="colorPrimaryPureWhite">#ffffffff</color>
+    <color name="colorPrimaryDarkPureWhite">#ffffffff</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
@@ -113,16 +226,19 @@
     <!-- ####################################################################################### -->
     <color name="normalTabColorRed">#ffef9a9a</color>
     <color name="colorPrimaryRed">#ffd32f2f</color>
+    <color name="colorPrimaryDarkRed">#ff9a0007</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorBlue">#ff90caf9</color>
     <color name="colorPrimaryBlue">#ff1976d2</color>
+    <color name="colorPrimaryDarkBlue">#ff004ba0</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
     <color name="normalTabColorGreen">#ffa5d6a7</color>
     <color name="colorPrimaryGreen">#ff2e7d32</color>
+    <color name="colorPrimaryDarkGreen">#ff005005</color>
     <!-- ####################################################################################### -->
 
     <!-- ####################################################################################### -->
@@ -139,25 +255,100 @@
     <color tools:override="true" name="colorPrimaryBlack">#ff212121</color>
 
     <!-- A700 amber of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="colorAccentDark">#ffffab00</color>
+    <color name="colorAccentDisableDark">#4dffab00</color>
 
     <!-- https://stackoverflow.com/questions/36915508/what-are-the-material-design-dark-theme-colors -->
+    <color name="recyclerViewBackgroundDark">#ff303030</color>
+    <color name="materialBackgroundDark">#ff303030</color>
 
+    <color name="cardColorDark">#ff303030</color>
     <color name="cardSelectedColorDark">#ff32809c</color>
+    <color name="cardSelectedBorderColorDark">#ff0091ea</color>
 
     <color name="whiteNoteColorDark">#ff424242</color>
 
+    <color name="tabTextColorDark">#8a000000</color>
+    <color name="tabIconColorDark">#8a000000</color>
+
+    <color name="dialog_positive_button_text_color_material_dark">#ff000000</color>
+    <color name="dialog_positive_button_background_color_material_dark">#ffffab00</color>
+    <color name="dialog_positive_button_pressed_background_color_material_dark">#7fffab00</color>
+
     <!-- Obtain from screen capture -->
+    <color name="selectedItemBackgroundColorDark">#ff595959</color>
 
     <!-- https://stackoverflow.com/questions/30544657/material-design-icon-colors -->
+    <color name="selectedIconColorDark">#ffffffff</color>
+    <color name="selectedTextColorDark">#ffffffff</color>
+    <color name="greyIconColorDark">#7fffffff</color>
 
     <!-- https://stackoverflow.com/questions/27839216/android-material-design-divider-color -->
+    <color name="dividerColorDark">#1fffffff</color>
     <color name="noteLineColorDark">#1fffffff</color>
 
+    <color name="indicatorBorderColorDark">#1fffffff</color>
+    <color name="calendarRectBorderColorDark">#1fffffff</color>
+    <color name="colorPickerBorderColorDark">#1fffffff</color>
+    <color name="circleBorderColorDark">#ffffffff</color>
+
+    <color name="pinColorDark">#ffffab00</color>
+
+    <color name="dashboardDialogFragmentBottomLinearLayoutBackgoundColorDark">#ff595959</color>
+
+    <color name="editTextHighlightColorDark">#fffddb97</color>
+
+    <color name="noteHighlightColorDark">#ff264F78</color>
+    <color name="whiteNoteHighlightColorDark">#ff264F78</color>
+    <color name="redNoteHighlightColorDark">#ff264F78</color>
+    <color name="orangeNoteHighlightColorDark">#ffffffff</color>
+    <color name="yellowNoteHighlightColorDark">#ffffffff</color>
+    <color name="darkBlueNoteHighlightColorDark">#ff264F78</color>
+    <color name="blueNoteHighlightColorDark">#ff264F78</color>
+    <color name="tealNoteHighlightColorDark">#ff264F78</color>
+    <color name="greenNoteHighlightColorDark">#ff264F78</color>
+    <color name="purpleNoteHighlightColorDark">#ff264F78</color>
+    <color name="pinkNoteHighlightColorDark">#ff264F78</color>
+    <color name="brownNoteHighlightColorDark">#ff264F78</color>
+    <color name="greyNoteHighlightColorDark">#ff264F78</color>
+
+    <color name="calendarHolidayLunarTextColorDark">#ffffab00</color>
+    <color name="calendarBackgroundColorDark">#ff303030</color>
+    <color name="calendarCurrentMonthTextColorDark">#ffffffff</color>
+    <color name="calendarOtherMonthTextColorDark">#ff595959</color>
+    <color name="calendarCurrentMonthLunarTextColorDark">#b3ffffff</color>
+    <color name="calendarOtherMonthLunarTextColorDark">#ff595959</color>
+    <color name="calendarSelectedTextColorDark">#ffffffff</color>
+    <color name="calendarSelectedLunarTextColorDark">#ffffffff</color>
+    <color name="calendarSelectedThemeColorDark">#ff595959</color>
+    <color name="calendarCurrentDayTextColorDark">#ff7cb342</color>
+    <color name="calendarCurrentDayLunarTextColorDark">#ff7cb342</color>
+    <color name="calendarSundayTextColorDark">#E57373</color>
+    <color name="calendarSundayLunarTextColorDark">#E57373</color>
+    <color name="calendarWeekLineBackgroundColorDark">#00000000</color>
+    <color name="calendarWeekSelectedTextColorDark">#ff7cb342</color>
+    <color name="calendarWeekTextColorDark">#b3ffffff</color>
+    <color name="calendarWeekSundayTextColorDark">#E57373</color>
+    <color name="calendarYearBackgroundColorDark">#ff303030</color>
+    <color name="calendarYearMonthTextColorDark">#E57373</color>
+    <color name="calendarYearSchemeColorDark">#ffffab00</color>
+
     <!-- 300 red of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="alertTextViewColorDark">#E57373</color>
     <!-- 300 green of https://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="successTextViewColorDark">#81C784</color>
 
     <!-- ripple_material_dark -->
+    <color name="widgetButtonPressedLight">#33ffffff</color>
+    <drawable name="widgetButtonPressedLight">#33ffffff</drawable>
+    <drawable name="widgetButtonNormalLight">@android:color/transparent</drawable>
 
     <!-- ripple_material_light -->
+    <color name="widgetButtonPressedDark">#1f000000</color>
+    <drawable name="widgetButtonPressedDark">#1f000000</drawable>
+    <drawable name="widgetButtonNormalDark">@android:color/transparent</drawable>
 
+    <color name="recordingRippleColorLight">#7fe53935</color>
+
+    <color name="google_play_store_button_color">#ff01875F</color>
 </resources>
