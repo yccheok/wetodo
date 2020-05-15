@@ -23,6 +23,7 @@ import com.yocto.wetodo.color.ColorPickerDialogListener;
 import com.yocto.wetodo.helper.SimpleItemTouchHelperCallback;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoFolderViewModel;
+import com.yocto.wetodo.recyclerview.SimplePaddingSection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.List;
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section;
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 
+import static com.yocto.wetodo.Utils.dpToPixel;
 import static com.yocto.wetodo.ui.Utils.CUSTOM_COLOR_INDEX;
 import static com.yocto.wetodo.ui.Utils.NIL_CUSTOM_COLOR;
 import static com.yocto.wetodo.ui.Utils.isCustomColorIndex;
@@ -42,12 +44,17 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
     private RecyclerView recyclerView;
     private TodoFolderViewModel todoFolderViewModel;
     private TodoFolderSection todoFolderSection;
+    private SimplePaddingSection topPaddingSection;
     private SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter;
 
     private final List<TodoFolder> filteredTodoFolders = new ArrayList<>();
     private TodoFolder editedTodoFolder = null;
+
+    private boolean oldTopPaddingSectionVisible;
     private final List<TodoFolder> oldFilteredTodoFoldersCopy = new ArrayList<>();
     private TodoFolder oldEditedTodoFolderCopy = null;
+    private boolean oldHasFooter;
+    private Section.State oldState;
 
     private int[] colors;
 
@@ -129,20 +136,28 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
 
         this.recyclerView = view.findViewById(R.id.recycler_view);
         this.sectionedRecyclerViewAdapter = new SectionedRecyclerViewAdapter();
+        this.topPaddingSection = new SimplePaddingSection(
+                dpToPixel(16)
+        );
         this.todoFolderSection = new TodoFolderSection(this);
+        this.sectionedRecyclerViewAdapter.addSection(this.topPaddingSection);
         this.sectionedRecyclerViewAdapter.addSection(this.todoFolderSection);
         this.recyclerView.setAdapter(this.sectionedRecyclerViewAdapter);
 
-        this.todoFolderSection.setHasFooter(true);
         if (firstTime) {
             this.todoFolderSection.setState(Section.State.LOADING);
+            this.todoFolderSection.setHasFooter(false);
         } else {
-            ensureSectionHasCorrectState();
+            ensureSectionHaveCorrectFooterAndState();
         }
+
+        ensurePaddingSectionHaveCorrectVisibility();
 
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         ((SimpleItemAnimator) this.recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+
+        updateOldDatas();
 
         this.simpleItemTouchHelperCallback = new SimpleItemTouchHelperCallback(true, this.todoFolderSection);
         this.simpleItemTouchHelperCallback.setLongPressDragEnabled(false);
@@ -175,8 +190,18 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
         Utils.ready(this.todoFolderViewModel.getTodoFoldersLiveData(), this, todoFolders -> onChanged(todoFolders));
     }
 
-    private void ensureSectionHasCorrectState() {
+    private void ensureSectionHaveCorrectFooterAndState() {
         this.todoFolderSection.setState(Section.State.LOADED);
+        this.todoFolderSection.setHasFooter(true);
+    }
+
+    // Depends on ensureSectionHaveCorrectFooterAndState.
+    private void ensurePaddingSectionHaveCorrectVisibility() {
+        if (todoFolderSection.getState() == Section.State.LOADED) {
+            topPaddingSection.setVisible(true);
+        } else {
+            topPaddingSection.setVisible(false);
+        }
     }
 
     private void onChanged(final List<TodoFolder> todoFolders) {
@@ -185,20 +210,26 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
 
         final boolean firstTime = this.oldFilteredTodoFoldersCopy.isEmpty() && false == this.filteredTodoFolders.isEmpty();
 
-        ensureSectionHasCorrectState();
+        ensureSectionHaveCorrectFooterAndState();
+
+        ensurePaddingSectionHaveCorrectVisibility();
 
         TodoFolderDiffUtilCallback todoFolderDiffUtilCallback = new TodoFolderDiffUtilCallback(
+                this.topPaddingSection.isVisible(),
+                this.oldTopPaddingSectionVisible,
                 this.filteredTodoFolders,
                 oldFilteredTodoFoldersCopy,
                 editedTodoFolder,
-                oldEditedTodoFolderCopy
+                oldEditedTodoFolderCopy,
+                todoFolderSection.hasFooter(),
+                oldHasFooter,
+                todoFolderSection.getState(),
+                oldState
         );
 
         DiffUtil.calculateDiff(todoFolderDiffUtilCallback).dispatchUpdatesTo(sectionedRecyclerViewAdapter);
 
-        this.oldFilteredTodoFoldersCopy.clear();
-        this.oldFilteredTodoFoldersCopy.addAll(TodoFolder.copy(this.filteredTodoFolders));
-        this.oldEditedTodoFolderCopy = editedTodoFolder == null ? null : editedTodoFolder.copy();
+        updateOldDatas();
 
         if (scrollToBottom) {
             scrollToBottom = false;
@@ -217,6 +248,15 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
 
         // The code looks different than DashboardFragment, as the mutation operation happens
         // within this fragment.
+    }
+
+    private void updateOldDatas() {
+        this.oldTopPaddingSectionVisible = topPaddingSection.isVisible();
+        this.oldFilteredTodoFoldersCopy.clear();
+        this.oldFilteredTodoFoldersCopy.addAll(TodoFolder.copy(this.filteredTodoFolders));
+        this.oldEditedTodoFolderCopy = editedTodoFolder == null ? null : editedTodoFolder.copy();
+        this.oldHasFooter = todoFolderSection.hasFooter();
+        this.oldState = todoFolderSection.getState();
     }
 
     private void initRecycleViewScrollPosition() {

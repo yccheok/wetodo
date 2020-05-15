@@ -170,9 +170,20 @@ public class TodoFolderSection extends Section implements ItemTouchHelperAdapter
             return false;
         }
 
+        SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter = todoFolderSettingsFragment.getSectionedRecyclerViewAdapter();
+
+        Section section = sectionedRecyclerViewAdapter.getSectionForPosition(fromPosition);
+
+        if (section != this) {
+            return false;
+        }
+
+        final int fromPositionInSection = sectionedRecyclerViewAdapter.getPositionInSection(fromPosition);
+        final int toPositionInSection = sectionedRecyclerViewAdapter.getPositionInSection(toPosition);
+
         final List<TodoFolder> filteredTodoFolders = todoFolderSettingsFragment.getFilteredTodoFolders();
-        final TodoFolder fromTodoFolder = filteredTodoFolders.get(fromPosition);
-        final TodoFolder toTodoFolder = filteredTodoFolders.get(toPosition);
+        final TodoFolder fromTodoFolder = filteredTodoFolders.get(fromPositionInSection);
+        final TodoFolder toTodoFolder = filteredTodoFolders.get(toPositionInSection);
 
         final List<TodoFolder> todoFolders = todoFolderSettingsFragment.getTodoFolderViewModel().getTodoFoldersLiveData().getValue();
 
@@ -358,7 +369,7 @@ public class TodoFolderSection extends Section implements ItemTouchHelperAdapter
         private int getPositionInSection() {
             final int position = todoFolderSettingsFragment.getRecyclerView().getChildAdapterPosition(itemView);
 
-            if (position < 0 || position >= getContentItemsTotal()) {
+            if (position < 0) {
                 return -1;
             }
 
