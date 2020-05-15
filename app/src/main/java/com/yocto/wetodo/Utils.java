@@ -170,7 +170,7 @@ public class Utils {
     }
 
     public static boolean ensureTodoFoldersAreValid(List<TodoFolder> todoFolders, boolean async) {
-        final List<TodoFolder> mutableTodoFolders = new ArrayList<>(todoFolders);
+        final List<TodoFolder> mutableTodoFolders = TodoFolder.copy(todoFolders);
 
         final List<TodoFolder> invalidTodoFolders = new ArrayList<>();
 
