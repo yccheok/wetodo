@@ -75,9 +75,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        // TODO:
-        //if (SectionedRecyclerViewAdapter.VIEW_TYPE_ITEM_LOADED != SectionedRecyclerViewAdapter.getSectionItemViewTypeForAdapterViewType(viewHolder.getItemViewType())) {
-        if (false) {
+        if (SectionedRecyclerViewAdapter.VIEW_TYPE_ITEM_LOADED != SectionedRecyclerViewAdapter.getSectionItemViewTypeForAdapterViewType(viewHolder.getItemViewType())) {
             final int dragFlags = 0;
             final int swipeFlags = 0;
             return makeMovementFlags(dragFlags, swipeFlags);
