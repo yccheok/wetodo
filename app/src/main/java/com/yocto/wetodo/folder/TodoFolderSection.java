@@ -335,11 +335,6 @@ public class TodoFolderSection extends Section implements ItemTouchHelperAdapter
 
                         todoFolders.remove(todoFolder);
 
-                        // A dirty hacking way, to ensure we stay at Tab Settings page.
-                        final int size = todoFolders.size();
-                        WeTodoOptions.setSelectedTodoFolderIndex(size - 1);
-                        WeTodoOptions.INSTANCE.setSelectedTodoFolder(todoFolders.get(size - 1).copy());
-
                         todoFolderSettingsFragment.onChanged();
                         todoFolderSettingsFragment.postWaitForAnimationsToFinish(() -> todoFolderSettingsFragment.getTodoFolderViewModel().permanentDeleteAsync(todoFolder));
 

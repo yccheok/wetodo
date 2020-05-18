@@ -208,8 +208,6 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
         this.filteredTodoFolders.clear();
         this.filteredTodoFolders.addAll(getFilteredTodoFolders(todoFolders));
 
-        final boolean firstTime = this.oldFilteredTodoFoldersCopy.isEmpty() && false == this.filteredTodoFolders.isEmpty();
-
         ensureSectionHaveCorrectFooterAndState();
 
         ensurePaddingSectionHaveCorrectVisibility();
@@ -236,14 +234,6 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
             // Need not -1, as we have footer.
             int position = this.filteredTodoFolders.size();
             recyclerView.scrollToPosition(position);
-        } else {
-            // When viewModelProvider.getTabInfosLiveData() is being initialized for the first time
-            // (This only happen in Drawer navigation, as viewModelProvider.getTabInfosLiveData()
-            // will be initialized in other tab pages), recycler view will scroll to bottom. We not
-            // sure why this happens. The following is a hack to prevent so.
-            if (firstTime) {
-                initRecycleViewScrollPosition();
-            }
         }
 
         // The code looks different than DashboardFragment, as the mutation operation happens
@@ -257,10 +247,6 @@ public class TodoFolderSettingsFragment extends Fragment implements ColorPickerD
         this.oldEditedTodoFolderCopy = editedTodoFolder == null ? null : editedTodoFolder.copy();
         this.oldHasFooter = todoFolderSection.hasFooter();
         this.oldState = todoFolderSection.getState();
-    }
-
-    private void initRecycleViewScrollPosition() {
-        recyclerView.post(() -> scroll(recyclerView, 0));
     }
 
     public List<TodoFolder> getFilteredTodoFolders() {

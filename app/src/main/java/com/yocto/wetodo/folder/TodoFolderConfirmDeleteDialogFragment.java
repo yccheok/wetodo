@@ -38,11 +38,6 @@ public class TodoFolderConfirmDeleteDialogFragment extends DialogFragment {
         return new AlertDialog.Builder(fragmentActivity)
                 .setMessage(message)
                 .setPositiveButton(R.string.remove, (dialog, which) -> {
-                    // A dirty hacking way, to ensure we stay at Tab Settings page.
-                    WeTodoOptions.setSelectedTodoFolderIndex(
-                            WeTodoOptions.getSelectedTodoFolderIndex()-1
-                    );
-
                     viewModelProvider.get(TodoFolderViewModel.class).permanentDeleteAsync(todoFolder);
                 })
                 .setNegativeButton(android.R.string.cancel, null)

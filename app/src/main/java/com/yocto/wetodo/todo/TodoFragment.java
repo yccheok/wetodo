@@ -140,10 +140,14 @@ public class TodoFragment extends Fragment {
     }
 
     private void ensureSelectedTodoFolderIndexIsValid() {
-        int selectedTodoFolderIndex = WeTodoOptions.getSelectedTodoFolderIndex();
-        if (selectedTodoFolderIndex < 0 || selectedTodoFolderIndex >= this.todoFolders.size()) {
-            selectedTodoFolderIndex = 0;
-            WeTodoOptions.setSelectedTodoFolderIndex(selectedTodoFolderIndex);
+        final int selectedTodoFolderIndex = WeTodoOptions.getSelectedTodoFolderIndex();
+        if (selectedTodoFolderIndex < 0) {
+            WeTodoOptions.setSelectedTodoFolderIndex(0);
+        } else {
+            final int size = this.todoFolders.size();
+            if (selectedTodoFolderIndex >= size) {
+                WeTodoOptions.setSelectedTodoFolderIndex(Math.max(0, size-1));
+            }
         }
     }
 
