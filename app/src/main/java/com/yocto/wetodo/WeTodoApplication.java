@@ -3,9 +3,25 @@ package com.yocto.wetodo;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDexApplication;
 
-public class WeTodoApplication extends MultiDexApplication {
+public class WeTodoApplication extends MultiDexApplication implements DefaultLifecycleObserver {
+    @Override
+    public void onResume(LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(LifecycleOwner owner) {
+        try {
+            WeTodoOptions.INSTANCE.saveToSharedPreferences();
+        } finally {
+        }
+    }
+
     private static WeTodoApplication me;
 
     private SharedPreferences sharedPreferences;
@@ -19,6 +35,14 @@ public class WeTodoApplication extends MultiDexApplication {
         me = this;
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        initLifecycleObserver();
+    }
+
+    private void initLifecycleObserver() {
+        Lifecycle lifecycle = ProcessLifecycleOwner.get().getLifecycle();
+        lifecycle.removeObserver(this);
+        lifecycle.addObserver(this);
     }
 
     public static WeTodoApplication instance() {

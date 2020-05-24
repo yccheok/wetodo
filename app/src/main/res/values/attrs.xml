@@ -24,7 +24,39 @@
     <attr name="cyanTabColor" format="color" />
     <attr name="greyTabColor" format="color" />
 
+    <attr name="normalTabColor" format="color" />
+    <attr name="tabTextColor" format="color" />
+    <attr name="tabIconColor" format="color" />
+
+    <attr name="deleteIcon" format="reference" />
+    <attr name="dragIcon" format="reference" />
+    <attr name="confirmSettingsIcon" format="reference" />
     <attr name="settingsTabIcon" format="reference" />
+    <attr name="smallLockedIcon" format="reference" />
+    <attr name="backspaceIcon" format="reference" />
+    <attr name="confirmInputIcon" format="reference" />
+
+    <attr name="snackbarActionTextColor" format="color" />
 
     <attr name="recyclerViewBackground" format="color" />
+
+    <attr name="materialBackground" format="color" />
+
+    <attr name="colorPickerBorderColor" format="color" />
+
+    <attr name="primaryTextColor" format="color" />
+    <attr name="secondaryTextColor" format="color" />
+
+    <attr name="dialogPositiveButtonTextColor" format="color" />
+    <attr name="dialogPositiveButtonSelector" format="reference" />
+
+    <attr name="rectangleWithBorder" format="reference" />
+    <attr name="rectangleWithBorderForColorPicker" format="reference" />
+
+    <declare-styleable name="ColorPanelView">
+        <attr name="cpv_colorShape" format="enum">
+            <enum name="square" value="0"/>
+            <enum name="circle" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>
