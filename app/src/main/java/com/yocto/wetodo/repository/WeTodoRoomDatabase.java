@@ -5,15 +5,20 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.yocto.wetodo.WeTodoApplication;
+import com.yocto.wetodo.model.PlainTodo;
+import com.yocto.wetodo.model.SimpleTodo;
+import com.yocto.wetodo.model.Todo;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoFolderTrash;
 
 @Database(
-        entities = {
-                TodoFolder.class,
-                TodoFolderTrash.class
-        },
-        version = 1
+    entities = {
+        PlainTodo.class,
+        SimpleTodo.class,
+        TodoFolder.class,
+        TodoFolderTrash.class
+    },
+    version = 1
 )
 public abstract class WeTodoRoomDatabase extends RoomDatabase {
     private volatile static WeTodoRoomDatabase INSTANCE;
