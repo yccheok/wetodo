@@ -1,8 +1,27 @@
 package com.yocto.wetodo.model;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(
+    tableName = "simple_todo",
+    foreignKeys ={
+        @ForeignKey(
+            onDelete = CASCADE,
+            entity = PlainTodo.class,
+            parentColumns = "id",
+            childColumns = "plain_todo_id"
+        )
+    },
+    indices = {
+        @Index("plain_todo_id")
+    }
+)
 public class SimpleTodo {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -16,6 +35,9 @@ public class SimpleTodo {
 
     @ColumnInfo(name = "order")
     private int order;
+
+    @ColumnInfo(name = "plain_todo_id")
+    private long plainTodoId;
 
     public SimpleTodo() {
     }
@@ -52,6 +74,14 @@ public class SimpleTodo {
         this.order = order;
     }
 
+    public long getPlainTodoId() {
+        return plainTodoId;
+    }
+
+    public void setPlainTodoId(long plainTodoId) {
+        this.plainTodoId = plainTodoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,6 +92,7 @@ public class SimpleTodo {
         if (id != that.id) return false;
         if (checked != that.checked) return false;
         if (order != that.order) return false;
+        if (plainTodoId != that.plainTodoId) return false;
         return title != null ? title.equals(that.title) : that.title == null;
     }
 
@@ -71,6 +102,7 @@ public class SimpleTodo {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (checked ? 1 : 0);
         result = 31 * result + order;
+        result = 31 * result + (int) (plainTodoId ^ (plainTodoId >>> 32));
         return result;
     }
 }
