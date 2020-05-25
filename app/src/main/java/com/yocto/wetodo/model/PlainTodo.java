@@ -57,4 +57,26 @@ public class PlainTodo {
         this.checked = checked;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PlainTodo plainTodo = (PlainTodo) o;
+
+        if (id != plainTodo.id) return false;
+        if (checked != plainTodo.checked) return false;
+        if (folder != null ? !folder.equals(plainTodo.folder) : plainTodo.folder != null)
+            return false;
+        return title != null ? title.equals(plainTodo.title) : plainTodo.title == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (folder != null ? folder.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (checked ? 1 : 0);
+        return result;
+    }
 }
