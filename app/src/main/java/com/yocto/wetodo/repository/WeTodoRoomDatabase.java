@@ -25,6 +25,8 @@ public abstract class WeTodoRoomDatabase extends RoomDatabase {
 
     private static final String NAME = "wetodo";
 
+    public abstract TodoDao todoDao();
+
     public abstract TodoFolderDao todoFolderDao();
 
     public static WeTodoRoomDatabase instance() {
