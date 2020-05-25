@@ -1,5 +1,8 @@
 package com.yocto.wetodo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
@@ -11,7 +14,7 @@ import androidx.room.PrimaryKey;
         @Index("folder")
     }
 )
-public class PlainTodo {
+public class PlainTodo implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
@@ -24,6 +27,41 @@ public class PlainTodo {
 
     @ColumnInfo(name = "checked")
     private boolean checked;
+
+    public PlainTodo() {
+    }
+
+    protected PlainTodo(Parcel in) {
+        id = in.readLong();
+        folder = in.readString();
+        title = in.readString();
+        checked = in.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(folder);
+        dest.writeString(title);
+        dest.writeByte((byte) (checked ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<PlainTodo> CREATOR = new Creator<PlainTodo>() {
+        @Override
+        public PlainTodo createFromParcel(Parcel in) {
+            return new PlainTodo(in);
+        }
+
+        @Override
+        public PlainTodo[] newArray(int size) {
+            return new PlainTodo[size];
+        }
+    };
 
     public long getId() {
         return id;

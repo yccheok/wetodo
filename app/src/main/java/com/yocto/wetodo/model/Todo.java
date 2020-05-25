@@ -1,12 +1,15 @@
 package com.yocto.wetodo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Todo {
+public class Todo implements Parcelable {
     @Embedded
     private PlainTodo plainTodo = new PlainTodo();
 
@@ -16,6 +19,37 @@ public class Todo {
         entity = SimpleTodo.class
     )
     private List<SimpleTodo> simpleTodos = new ArrayList<>();
+
+    public Todo() {
+    }
+
+    protected Todo(Parcel in) {
+        plainTodo = in.readParcelable(PlainTodo.class.getClassLoader());
+        simpleTodos = in.createTypedArrayList(SimpleTodo.CREATOR);
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(plainTodo, flags);
+        dest.writeTypedList(simpleTodos);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Todo> CREATOR = new Creator<Todo>() {
+        @Override
+        public Todo createFromParcel(Parcel in) {
+            return new Todo(in);
+        }
+
+        @Override
+        public Todo[] newArray(int size) {
+            return new Todo[size];
+        }
+    };
 
     public PlainTodo getPlainTodo() {
         return plainTodo;
