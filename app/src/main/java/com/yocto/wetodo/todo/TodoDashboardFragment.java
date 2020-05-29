@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yocto.wetodo.R;
 import com.yocto.wetodo.model.TodoFolder;
@@ -14,6 +15,8 @@ public class TodoDashboardFragment extends Fragment {
     private static final String INTENT_EXTRA_TODO_FOLDER = "INTENT_EXTRA_TODO_FOLDER";
 
     private TodoFolder todoFolder;
+
+    private RecyclerView recyclerView;
 
     public static TodoDashboardFragment newInstance(TodoFolder todoFolder) {
         TodoDashboardFragment todoDashboardFragment = new TodoDashboardFragment();
@@ -34,6 +37,8 @@ public class TodoDashboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.todo_dashboard_fragment, container, false);
+
+        this.recyclerView = view.findViewById(R.id.recycler_view);
 
         return view;
     }

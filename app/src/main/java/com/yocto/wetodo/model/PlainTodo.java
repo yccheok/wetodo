@@ -5,13 +5,17 @@ import android.os.Parcelable;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import static com.yocto.wetodo.Utils.generateUUID;
 
 @Entity(
     tableName = "plain_todo",
     indices = {
-        @Index("folder")
+        @Index("folder"),
+        @Index("uuid"),
     }
 )
 public class PlainTodo implements Parcelable {
@@ -28,7 +32,16 @@ public class PlainTodo implements Parcelable {
     @ColumnInfo(name = "checked")
     private boolean checked;
 
+    @ColumnInfo(name = "uuid")
+    private final String uuid;
+
+    @Ignore
     public PlainTodo() {
+        this(generateUUID());
+    }
+
+    public PlainTodo(String uuid) {
+        this.uuid = uuid;
     }
 
     protected PlainTodo(Parcel in) {
@@ -36,6 +49,7 @@ public class PlainTodo implements Parcelable {
         folder = in.readString();
         title = in.readString();
         checked = in.readByte() != 0;
+        uuid = in.readString();
     }
 
     @Override
@@ -44,6 +58,7 @@ public class PlainTodo implements Parcelable {
         dest.writeString(folder);
         dest.writeString(title);
         dest.writeByte((byte) (checked ? 1 : 0));
+        dest.writeString(uuid);
     }
 
     @Override
@@ -95,6 +110,10 @@ public class PlainTodo implements Parcelable {
         this.checked = checked;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -106,7 +125,8 @@ public class PlainTodo implements Parcelable {
         if (checked != plainTodo.checked) return false;
         if (folder != null ? !folder.equals(plainTodo.folder) : plainTodo.folder != null)
             return false;
-        return title != null ? title.equals(plainTodo.title) : plainTodo.title == null;
+        if (title != null ? !title.equals(plainTodo.title) : plainTodo.title != null) return false;
+        return uuid.equals(plainTodo.uuid);
     }
 
     @Override
@@ -115,6 +135,7 @@ public class PlainTodo implements Parcelable {
         result = 31 * result + (folder != null ? folder.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (checked ? 1 : 0);
+        result = 31 * result + uuid.hashCode();
         return result;
     }
 }

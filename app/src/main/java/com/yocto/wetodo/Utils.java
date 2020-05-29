@@ -383,10 +383,6 @@ public class Utils {
         }
     }
 
-    public static boolean equals(String a, String b) {
-        return (a == b) || (a != null && a.equals(b));
-    }
-
     public static boolean equals(Object a, Object b) {
         return (a == b) || (a != null && a.equals(b));
     }
