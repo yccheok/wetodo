@@ -22,10 +22,10 @@ public class TodoViewModel extends ViewModel {
         }
 
         todosPagedListLiveData = new LivePagedListBuilder<>(
-                TodoRepository.INSTANCE.getTodos(),
+                TodoRepository.INSTANCE.getTodosDataSourceFactory(),
                 PAGE_SIZE
         ).build();
-        
+
         return todosPagedListLiveData;
     }
 }
