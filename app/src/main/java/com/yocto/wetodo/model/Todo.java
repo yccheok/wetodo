@@ -9,7 +9,7 @@ import androidx.room.Relation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Todo implements Parcelable {
+public class Todo implements Parcelable, Todoable {
     @Embedded
     private PlainTodo plainTodo = new PlainTodo();
 
@@ -83,5 +83,15 @@ public class Todo implements Parcelable {
         int result = plainTodo.hashCode();
         result = 31 * result + simpleTodos.hashCode();
         return result;
+    }
+
+    @Override
+    public String getTitle() {
+        return plainTodo.getTitle();
+    }
+
+    @Override
+    public long getId() {
+        return plainTodo.getId();
     }
 }
