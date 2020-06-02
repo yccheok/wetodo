@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yocto.wetodo.R;
-import com.yocto.wetodo.model.Todo;
 import com.yocto.wetodo.model.TodoFolder;
 import com.yocto.wetodo.model.TodoViewModel;
+import com.yocto.wetodo.model.Todoable;
 
 public class TodoDashboardFragment extends Fragment {
     private static final String INTENT_EXTRA_TODO_FOLDER = "INTENT_EXTRA_TODO_FOLDER";
@@ -25,15 +25,15 @@ public class TodoDashboardFragment extends Fragment {
     private TodoViewModel todoViewModel;
 
     private RecyclerView recyclerView;
-    private TodoAdapter todoAdapter;
+    private TodoableAdapter todoableAdapter;
 
-    private final TodosPagedListObserver todosPagedListObserver = new TodosPagedListObserver();
+    private final TodoablesPagedListObserver todoablesPagedListObserver = new TodoablesPagedListObserver();
 
-    private class TodosPagedListObserver implements Observer<PagedList<Todo>> {
+    private class TodoablesPagedListObserver implements Observer<PagedList<Todoable>> {
 
         @Override
-        public void onChanged(PagedList<Todo> todosPageList) {
-            todoAdapter.submitList(todosPageList);
+        public void onChanged(PagedList<Todoable> todoablePagedList) {
+            todoableAdapter.submitList(todoablePagedList);
         }
     }
 
@@ -61,15 +61,15 @@ public class TodoDashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.todo_dashboard_fragment, container, false);
 
         this.recyclerView = view.findViewById(R.id.recycler_view);
-        this.todoAdapter = new TodoAdapter();
+        this.todoableAdapter = new TodoableAdapter();
 
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        this.recyclerView.setAdapter(todoAdapter);
+        this.recyclerView.setAdapter(todoableAdapter);
 
         final LifecycleOwner viewLifecycleOwner = getViewLifecycleOwner();
-        this.todoViewModel.getTodosPagedListLiveData().removeObservers(viewLifecycleOwner);
-        this.todoViewModel.getTodosPagedListLiveData().observe(viewLifecycleOwner, todosPagedListObserver);
+        this.todoViewModel.getTodoablesPagedListLiveData().removeObservers(viewLifecycleOwner);
+        this.todoViewModel.getTodoablesPagedListLiveData().observe(viewLifecycleOwner, todoablesPagedListObserver);
 
         return view;
     }
