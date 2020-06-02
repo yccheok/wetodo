@@ -35,7 +35,6 @@ import static com.yocto.wetodo.Utils.dpToPixel;
 import static com.yocto.wetodo.ui.Utils.CUSTOM_COLOR_INDEX;
 import static com.yocto.wetodo.ui.Utils.NIL_CUSTOM_COLOR;
 import static com.yocto.wetodo.ui.Utils.isCustomColorIndex;
-import static com.yocto.wetodo.ui.Utils.scroll;
 
 public class TodoFolderSettingsFragment extends Fragment implements ColorPickerDialogListener {
     private static final String TODO_FOLDER_CONFIRM_DELETE_DIALOG_FRAGMENT = "TODO_FOLDER_CONFIRM_DELETE_DIALOG_FRAGMENT";
