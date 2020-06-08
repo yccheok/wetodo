@@ -6,10 +6,12 @@ import android.os.Parcelable;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
+import com.yocto.wetodo.todo.Todoable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Todo implements Parcelable {
+public class Todo implements Parcelable, Todoable {
     @Embedded
     private PlainTodo plainTodo = new PlainTodo();
 
@@ -68,6 +70,11 @@ public class Todo implements Parcelable {
     }
 
     @Override
+    public long getId() {
+        return plainTodo.getId();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -76,6 +83,11 @@ public class Todo implements Parcelable {
 
         if (!plainTodo.equals(todo.plainTodo)) return false;
         return simpleTodos.equals(todo.simpleTodos);
+    }
+
+    @Override
+    public int getItemViewType() {
+        return Todoable.TODO_TYPE;
     }
 
     @Override

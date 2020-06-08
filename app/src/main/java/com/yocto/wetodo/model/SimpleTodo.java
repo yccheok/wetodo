@@ -9,6 +9,8 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import com.yocto.wetodo.todo.Todoable;
+
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
@@ -25,7 +27,7 @@ import static androidx.room.ForeignKey.CASCADE;
         @Index("plain_todo_id")
     }
 )
-public class SimpleTodo implements Parcelable {
+public class SimpleTodo implements Parcelable, Todoable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
@@ -131,6 +133,11 @@ public class SimpleTodo implements Parcelable {
         if (order != that.order) return false;
         if (plainTodoId != that.plainTodoId) return false;
         return title != null ? title.equals(that.title) : that.title == null;
+    }
+
+    @Override
+    public int getItemViewType() {
+        return Todoable.SIMPLE_TODO_TYPE;
     }
 
     @Override
