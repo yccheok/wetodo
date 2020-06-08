@@ -27,6 +27,8 @@ public abstract class WeTodoRoomDatabase extends RoomDatabase {
 
     public abstract TodoFolderDao todoFolderDao();
 
+    public abstract TodoDao todoDao();
+
     public static WeTodoRoomDatabase instance() {
         if (INSTANCE == null) {
             synchronized (WeTodoRoomDatabase.class) {
