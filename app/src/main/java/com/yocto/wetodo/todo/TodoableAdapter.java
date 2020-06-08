@@ -15,6 +15,8 @@ import com.yocto.wetodo.model.SimpleTodo;
 import com.yocto.wetodo.model.Todo;
 
 public class TodoableAdapter extends ListAdapter<Todoable,  RecyclerView.ViewHolder> {
+    private final TodoDashboardFragment todoDashboardFragment;
+
     private class TodoViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleTextView;
@@ -22,6 +24,17 @@ public class TodoableAdapter extends ListAdapter<Todoable,  RecyclerView.ViewHol
         public TodoViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.title_text_view);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    RecyclerView recyclerView = todoDashboardFragment.getRecyclerView();
+                    int position = recyclerView.getChildAdapterPosition(view);
+                    Todoable todoable = getItem(position);
+                    Todo todo = (Todo)todoable;
+                    todoDashboardFragment.toggle(todo);
+                }
+            });
         }
     }
 
@@ -35,8 +48,10 @@ public class TodoableAdapter extends ListAdapter<Todoable,  RecyclerView.ViewHol
         }
     }
 
-    public TodoableAdapter() {
+    public TodoableAdapter(TodoDashboardFragment todoDashboardFragment) {
         super(DIFF_CALLBACK);
+
+        this.todoDashboardFragment = todoDashboardFragment;
     }
 
     @NonNull

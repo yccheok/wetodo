@@ -88,7 +88,7 @@ public class TodoDashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.todo_dashboard_fragment, container, false);
 
         this.recyclerView = view.findViewById(R.id.recycler_view);
-        this.todoableAdapter = new TodoableAdapter();
+        this.todoableAdapter = new TodoableAdapter(this);
         this.recyclerView.setAdapter(todoableAdapter);
 
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -105,8 +105,20 @@ public class TodoDashboardFragment extends Fragment {
         todosObserver.onChanged(todos);
     }
 
-    public void collapse(Todo todo) {
+    public void toggle(Todo todo) {
+        if (expandedIds.contains(todo.getId())) {
+            collapse(todo);
+        } else {
+            expand(todo);
+        }
+    }
+
+    private void collapse(Todo todo) {
         expandedIds.remove(todo.getPlainTodo().getId());
         todosObserver.onChanged(todos);
+    }
+
+    public RecyclerView getRecyclerView() {
+        return this.recyclerView;
     }
 }
