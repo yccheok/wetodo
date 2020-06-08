@@ -26,11 +26,15 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.yocto.wetodo.model.SimpleTodo;
+import com.yocto.wetodo.model.Todo;
+import com.yocto.wetodo.repository.TodoRepository;
 import com.yocto.wetodo.todo.TodoFragment;
 import com.yocto.wetodo.trash.TrashFragment;
 
 import java.util.Collections;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.yocto.wetodo.Utils.Assert;
@@ -164,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements
                 toolbarTextView.setLineSpacing(Utils.spToPixelInFloat(4), 1.0f);
                 break;
             }
-        }        
+        }
     }
 
     private void initNavigationView() {
@@ -195,12 +199,67 @@ public class MainActivity extends AppCompatActivity implements
         final int id = item.getItemId();
 
         if (id == R.id.action_add_todo) {
-            Intent intent = new Intent(this, DummyFragmentActivity.class);
-            startActivity(intent);
+            addTodo();
+            return true;
+        }
+
+        if (id == R.id.action_write_data) {
+            writeData();
+            return true;
+        }
+
+        if (id == R.id.action_read_data) {
+            readData();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addTodo() {
+        Intent intent = new Intent(this, DummyFragmentActivity.class);
+        startActivity(intent);
+    }
+
+    private void writeData() {
+        new Thread(() -> {
+            _writeData();
+            android.util.Log.i("CHEOK", "_writeData done");
+        }).start();
+    }
+
+    private void _writeData() {
+        for (int i=0; i<1000; i++) {
+            Todo todo = new Todo();
+            todo.getPlainTodo().setTitle(i + ") Title for PlainTodo");
+
+            for (int j=0; j<20; j++) {
+                SimpleTodo simpleTodo = new SimpleTodo();
+                simpleTodo.setTitle(j + ") Title for SimpleTodo");
+                simpleTodo.setOrder(j);
+                todo.getSimpleTodos().add(simpleTodo);
+            }
+
+            TodoRepository.INSTANCE.insert(todo);
+        }
+    }
+
+    private void readData() {
+        new Thread(() -> {
+            _readData();
+            android.util.Log.i("CHEOK", "_readData done");
+        }).start();
+    }
+
+    private void _readData() {
+        List<Todo> todos = TodoRepository.INSTANCE.getTodos();
+
+        for (Todo todo : todos) {
+            android.util.Log.i("CHEOK", ">>> Todo's title -> " + todo.getPlainTodo().getTitle());
+            for (SimpleTodo simpleTodo : todo.getSimpleTodos()) {
+                android.util.Log.i("CHEOK", "SimpleTodo's title -> " + simpleTodo.getTitle());
+            }
+        }
     }
 
     @Override
