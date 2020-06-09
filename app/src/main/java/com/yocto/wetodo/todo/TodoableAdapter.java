@@ -25,15 +25,12 @@ public class TodoableAdapter extends ListAdapter<Todoable,  RecyclerView.ViewHol
             super(itemView);
             titleTextView = itemView.findViewById(R.id.title_text_view);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    RecyclerView recyclerView = todoDashboardFragment.getRecyclerView();
-                    int position = recyclerView.getChildAdapterPosition(view);
-                    Todoable todoable = getItem(position);
-                    Todo todo = (Todo)todoable;
-                    todoDashboardFragment.toggle(todo);
-                }
+            itemView.setOnClickListener(view -> {
+                RecyclerView recyclerView = todoDashboardFragment.getRecyclerView();
+                int position = recyclerView.getChildAdapterPosition(view);
+                Todoable todoable = getItem(position);
+                Todo todo = (Todo)todoable;
+                todoDashboardFragment.toggle(todo);
             });
         }
     }
