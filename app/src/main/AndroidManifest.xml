@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.yocto.wetodo.DummyFragmentActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.yocto.wetodo.todo.NewTodoFragmentActivity"
+            android:windowSoftInputMode="stateVisible" />
     </application>
 </manifest>

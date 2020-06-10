@@ -29,6 +29,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.yocto.wetodo.model.SimpleTodo;
 import com.yocto.wetodo.model.Todo;
 import com.yocto.wetodo.repository.TodoRepository;
+import com.yocto.wetodo.todo.NewTodoFragmentActivity;
 import com.yocto.wetodo.todo.TodoFragment;
 import com.yocto.wetodo.trash.TrashFragment;
 
@@ -217,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void addTodo() {
-        Intent intent = new Intent(this, DummyFragmentActivity.class);
+        Intent intent = new Intent(this, NewTodoFragmentActivity.class);
         startActivity(intent);
     }
 
