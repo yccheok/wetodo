@@ -35,6 +35,8 @@
     <attr name="smallLockedIcon" format="reference" />
     <attr name="backspaceIcon" format="reference" />
     <attr name="confirmInputIcon" format="reference" />
+    <attr name="bigCheckedIcon" format="reference" />
+    <attr name="bigUncheckedIcon" format="reference" />
 
     <attr name="snackbarActionTextColor" format="color" />
 
