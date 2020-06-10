@@ -17,24 +17,36 @@
         app:cardElevation="2dp">
 
         <LinearLayout
+            android:id="@+id/constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
+            android:paddingBottom="8dp">
+
+            <ImageButton
+                android:foregroundGravity="center"
+
+                android:id="@+id/check_image_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/actionBarItemBackground"
+                android:src="@drawable/baseline_radio_button_unchecked_black_48"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" />
 
             <EditText
                 android:id="@+id/title_edit_text"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
                 android:background="@android:color/transparent"
-                android:hint="What do you want to do?"
-                android:imeOptions="actionNext|flagNoExtractUi"
+                android:hint="@string/todo_name"
+
+                android:imeOptions="actionDone|flagNoExtractUi"
                 android:inputType="textMultiLine|textCapSentences"
-                android:maxLength="280"
+                android:minHeight="48dp"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="20sp" />
         </LinearLayout>
