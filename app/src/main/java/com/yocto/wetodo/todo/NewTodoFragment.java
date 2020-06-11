@@ -2,6 +2,7 @@ package com.yocto.wetodo.todo;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -26,6 +27,8 @@ public class NewTodoFragment extends Fragment {
     // TODO: Replace with Todo object.
     private boolean checked = false;
 
+    private int primaryTextColor;
+    private int secondaryTextColor;
     private int bigCheckedIconResourceId;
     private int bigUncheckedIconResourceId;
     private int config_shortAnimTime;
@@ -39,6 +42,7 @@ public class NewTodoFragment extends Fragment {
             checked = !checked;
 
             updateCheckedImageButtonWithAnimation();
+            updateTitleEditText();
         }
     }
     public static NewTodoFragment newInstance(Bundle bundle) {
@@ -53,6 +57,10 @@ public class NewTodoFragment extends Fragment {
         Resources.Theme theme = context.getTheme();
         Resources resources = getResources();
 
+        theme.resolveAttribute(R.attr.primaryTextColor, typedValue, true);
+        primaryTextColor = typedValue.data;
+        theme.resolveAttribute(R.attr.secondaryTextColor, typedValue, true);
+        secondaryTextColor = typedValue.data;
         theme.resolveAttribute(R.attr.bigCheckedIcon, typedValue, true);
         bigCheckedIconResourceId = typedValue.resourceId;
         theme.resolveAttribute(R.attr.bigUncheckedIcon, typedValue, true);
@@ -79,8 +87,19 @@ public class NewTodoFragment extends Fragment {
         checkedImageButton.setOnClickListener(checkedImageButtonOnClickListener);
 
         updateCheckedImageButton();
+        updateTitleEditText();
 
         return view;
+    }
+
+    private void updateTitleEditText() {
+        if (checked) {
+            titleEditText.setTextColor(secondaryTextColor);
+            titleEditText.setPaintFlags(titleEditText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        } else {
+            titleEditText.setTextColor(primaryTextColor);
+            titleEditText.setPaintFlags(titleEditText.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+        }
     }
 
     private void updateCheckedImageButton() {
