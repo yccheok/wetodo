@@ -28,7 +28,7 @@ public class NewTodoFragment extends Fragment {
 
     private int bigCheckedIconResourceId;
     private int bigUncheckedIconResourceId;
-    private int config_mediumAnimTime;
+    private int config_shortAnimTime;
 
     private final CheckedImageButtonOnClickListener checkedImageButtonOnClickListener = new CheckedImageButtonOnClickListener();
 
@@ -36,12 +36,9 @@ public class NewTodoFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            if (checked) {
-                unCheckedImageButton();
-            } else {
-                checkedImageButton();
-            }
             checked = !checked;
+
+            updateCheckedImageButtonWithAnimation();
         }
     }
     public static NewTodoFragment newInstance(Bundle bundle) {
@@ -60,7 +57,7 @@ public class NewTodoFragment extends Fragment {
         bigCheckedIconResourceId = typedValue.resourceId;
         theme.resolveAttribute(R.attr.bigUncheckedIcon, typedValue, true);
         bigUncheckedIconResourceId = typedValue.resourceId;
-        config_mediumAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime);
+        config_shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime);
     }
 
     @Override
@@ -81,7 +78,25 @@ public class NewTodoFragment extends Fragment {
 
         checkedImageButton.setOnClickListener(checkedImageButtonOnClickListener);
 
+        updateCheckedImageButton();
+
         return view;
+    }
+
+    private void updateCheckedImageButton() {
+        if (checked) {
+            checkedImageButton();
+        } else {
+            unCheckedImageButton();
+        }
+    }
+
+    private void updateCheckedImageButtonWithAnimation() {
+        if (checked) {
+            checkedImageButtonWithAnimation();
+        } else {
+            unCheckedImageButton();
+        }
     }
 
     private void unCheckedImageButton() {
@@ -89,6 +104,10 @@ public class NewTodoFragment extends Fragment {
     }
 
     private void checkedImageButton() {
+        checkedImageButton.setImageResource(bigCheckedIconResourceId);
+    }
+
+    private void checkedImageButtonWithAnimation() {
         ScaleAnimation scaleDownAnimation = new ScaleAnimation(
                 1.0f,
                 0.0f,
@@ -98,7 +117,7 @@ public class NewTodoFragment extends Fragment {
                 checkedImageButton.getHeight() / 2.0f
         );
         scaleDownAnimation.setFillAfter(true);
-        scaleDownAnimation.setDuration(config_mediumAnimTime);
+        scaleDownAnimation.setDuration(config_shortAnimTime);
 
         scaleDownAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -108,7 +127,7 @@ public class NewTodoFragment extends Fragment {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                checkedImageButton.setImageResource(bigCheckedIconResourceId);
+                checkedImageButton();
 
                 ScaleAnimation scaleUpAnimation = new ScaleAnimation(
                         0.0f,
@@ -119,7 +138,7 @@ public class NewTodoFragment extends Fragment {
                         checkedImageButton.getHeight() / 2.0f
                 );
                 scaleUpAnimation.setFillAfter(true);
-                scaleUpAnimation.setDuration(config_mediumAnimTime);
+                scaleUpAnimation.setDuration(config_shortAnimTime);
                 checkedImageButton.startAnimation(scaleUpAnimation);
             }
 
