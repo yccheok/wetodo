@@ -3,6 +3,7 @@ package com.yocto.wetodo.repository;
 import android.provider.ContactsContract;
 
 import androidx.paging.DataSource;
+import androidx.paging.PagingSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -17,10 +18,8 @@ import java.util.List;
 
 @Dao
 public abstract class TodoDao {
-    // The Integer type parameter tells Room to use a
-    // PositionalDataSource object.
     @Query("SELECT * FROM plain_todo ORDER BY \"order\" ASC")
-    public abstract DataSource.Factory<Integer, Todo> getTodosDataSourceFactory();
+    public abstract PagingSource<Integer, Todo> getTodosPagingSource();
 
     @Query("SELECT * FROM plain_todo ORDER BY \"order\" ASC")
     public abstract List<Todo> getTodos();
