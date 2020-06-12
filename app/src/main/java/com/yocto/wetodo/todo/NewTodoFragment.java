@@ -12,17 +12,21 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.yocto.wetodo.R;
 
 import static com.yocto.wetodo.Utils.TypefaceLazyHolder.ROBOTO_MEDIUM_TYPE_FACE;
+import static com.yocto.wetodo.Utils.TypefaceLazyHolder.ROBOTO_REGULAR_TYPE_FACE;
 import static com.yocto.wetodo.Utils.setCustomTypeFace;
 
 public class NewTodoFragment extends Fragment {
     private ImageButton checkedImageButton;
     private EditText titleEditText;
+    private TextView dueDateTextView;
+    private TextView reminderTextView;
 
     // TODO: Replace with Todo object.
     private boolean checked = false;
@@ -81,8 +85,12 @@ public class NewTodoFragment extends Fragment {
 
         checkedImageButton = view.findViewById(R.id.checked_image_button);
         titleEditText = view.findViewById(R.id.title_edit_text);
+        dueDateTextView = view.findViewById(R.id.due_date_text_view);
+        reminderTextView = view.findViewById(R.id.reminder_text_view);
 
         setCustomTypeFace(titleEditText, ROBOTO_MEDIUM_TYPE_FACE);
+        setCustomTypeFace(dueDateTextView, ROBOTO_REGULAR_TYPE_FACE);
+        setCustomTypeFace(reminderTextView, ROBOTO_REGULAR_TYPE_FACE);
 
         checkedImageButton.setOnClickListener(checkedImageButtonOnClickListener);
 

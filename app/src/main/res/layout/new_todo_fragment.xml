@@ -64,15 +64,82 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Spinner
+            <LinearLayout
+                android:id="@+id/due_date_linear_layout"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
+
+                    android:id="@+id/due_date_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/outline_event_black_24"/>
+
+                <TextView
+                    android:id="@+id/due_date_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    style="?android:attr/spinnerItemStyle"
+                    android:singleLine="true"
+                    android:text="@string/due_date" />
+            </LinearLayout>
+
+            <View
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+
+                android:background="?android:listDivider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/reminder_linear_layout"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
+
+                    android:id="@+id/reminder_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/outline_notifications_none_black_24"/>
+
+                <TextView
+                    android:id="@+id/reminder_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    style="?android:attr/spinnerItemStyle"
+                    android:singleLine="true"
+                    android:text="@string/reminder" />
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
