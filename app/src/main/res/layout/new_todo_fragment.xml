@@ -18,22 +18,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
+            android:paddingLeft="8dp"
             android:paddingRight="16dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:orientation="horizontal">
 
             <ImageButton
-                android:foregroundGravity="center"
-
                 android:id="@+id/checked_image_button"
+
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/actionBarItemBackground"
-                android:src="?attr/bigUncheckedIcon"
+                android:foregroundGravity="center"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp" />
+                android:layout_marginRight="8dp"
+                android:src="?attr/uncheckedIcon" />
 
             <EditText
                 android:id="@+id/title_edit_text"
@@ -47,7 +49,7 @@
                 android:inputType="textMultiLine|textCapSentences"
                 android:minHeight="48dp"
                 android:textColor="?attr/primaryTextColor"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -70,8 +72,10 @@
 
             <LinearLayout
                 android:id="@+id/due_date_linear_layout"
-                android:paddingLeft="16dp"
+                android:paddingLeft="8dp"
                 android:paddingRight="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="16dp"
 
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
@@ -80,15 +84,11 @@
                 android:layout_height="48dp"
                 android:orientation="horizontal">
                 <ImageView
-                    android:paddingStart="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-
                     android:id="@+id/due_date_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/outline_event_black_24"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="center"
+                    android:src="?attr/dueDateIcon"/>
 
                 <TextView
                     android:id="@+id/due_date_text_view"
@@ -110,8 +110,10 @@
 
             <LinearLayout
                 android:id="@+id/reminder_linear_layout"
-                android:paddingLeft="16dp"
+                android:paddingLeft="8dp"
                 android:paddingRight="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="16dp"
 
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
@@ -120,15 +122,11 @@
                 android:layout_height="48dp"
                 android:orientation="horizontal">
                 <ImageView
-                    android:paddingStart="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-
                     android:id="@+id/reminder_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/outline_notifications_none_black_24"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="center"
+                    android:src="?attr/reminderIcon"/>
 
                 <TextView
                     android:id="@+id/reminder_text_view"

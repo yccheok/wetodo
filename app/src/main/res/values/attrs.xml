@@ -37,6 +37,10 @@
     <attr name="confirmInputIcon" format="reference" />
     <attr name="bigCheckedIcon" format="reference" />
     <attr name="bigUncheckedIcon" format="reference" />
+    <attr name="checkedIcon" format="reference" />
+    <attr name="uncheckedIcon" format="reference" />
+    <attr name="dueDateIcon" format="reference" />
+    <attr name="reminderIcon" format="reference" />
 
     <attr name="snackbarActionTextColor" format="color" />
 

@@ -34,6 +34,10 @@
         <item name="confirmInputIcon">@drawable/done_selector_light</item>
         <item name="bigCheckedIcon">@drawable/baseline_check_circle_black_48</item>
         <item name="bigUncheckedIcon">@drawable/baseline_radio_button_unchecked_black_48</item>
+        <item name="checkedIcon">@drawable/baseline_check_circle_black_24</item>
+        <item name="uncheckedIcon">@drawable/baseline_radio_button_unchecked_black_24</item>
+        <item name="dueDateIcon">@drawable/outline_event_black_24</item>
+        <item name="reminderIcon">@drawable/outline_notifications_none_black_24</item>
 
         <item name="blueTabColor">@color/blueTabColorLight</item>
         <item name="greenTabColor">@color/greenTabColorLight</item>

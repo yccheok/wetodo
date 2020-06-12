@@ -33,8 +33,8 @@ public class NewTodoFragment extends Fragment {
 
     private int primaryTextColor;
     private int secondaryTextColor;
-    private int bigCheckedIconResourceId;
-    private int bigUncheckedIconResourceId;
+    private int checkedIconResourceId;
+    private int uncheckedIconResourceId;
     private int config_shortAnimTime;
 
     private final CheckedImageButtonOnClickListener checkedImageButtonOnClickListener = new CheckedImageButtonOnClickListener();
@@ -65,10 +65,10 @@ public class NewTodoFragment extends Fragment {
         primaryTextColor = typedValue.data;
         theme.resolveAttribute(R.attr.secondaryTextColor, typedValue, true);
         secondaryTextColor = typedValue.data;
-        theme.resolveAttribute(R.attr.bigCheckedIcon, typedValue, true);
-        bigCheckedIconResourceId = typedValue.resourceId;
-        theme.resolveAttribute(R.attr.bigUncheckedIcon, typedValue, true);
-        bigUncheckedIconResourceId = typedValue.resourceId;
+        theme.resolveAttribute(R.attr.checkedIcon, typedValue, true);
+        checkedIconResourceId = typedValue.resourceId;
+        theme.resolveAttribute(R.attr.uncheckedIcon, typedValue, true);
+        uncheckedIconResourceId = typedValue.resourceId;
         config_shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime);
     }
 
@@ -127,11 +127,11 @@ public class NewTodoFragment extends Fragment {
     }
 
     private void unCheckedImageButton() {
-        checkedImageButton.setImageResource(bigUncheckedIconResourceId);
+        checkedImageButton.setImageResource(uncheckedIconResourceId);
     }
 
     private void checkedImageButton() {
-        checkedImageButton.setImageResource(bigCheckedIconResourceId);
+        checkedImageButton.setImageResource(checkedIconResourceId);
     }
 
     private void checkedImageButtonWithAnimation() {
