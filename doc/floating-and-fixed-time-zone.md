@@ -1,0 +1,23 @@
+A floating time zone will always match the current local time, regardless of the actual geographical time zone.
+
+[In Kuala Lumpur]
+
+1721725200000 = 5pm in Kuala Lumpur
+1721725200000 = 6pm Seoul
+
+1721728800000 = 6pm in Kuala Lumpur
+1721728800000 = 7pm Seoul
+
+Time zone type | Time zone      | Timestamp     | UI
+=================================================
+Fixed          | Seoul          | 1721725200000 | Showing 5pm <-- Fixed time zone remains unchanged.
+Floating       | Kuala Lumpur   | 1721728800000 | Showing 6pm <-- A cron job will update the floating time zone."
+
+
+[In Seoul]
+
+Time zone type | Time zone      | Timestamp     | UI
+=================================================
+Fixed          | Seoul          | 1721725200000 | Showing 6pm <-- Fixed remains unchanged.
+Floating       | Seoul          | 1721725200000 | Showing 6pm <-- A cron job will update the floating time zone.
+
